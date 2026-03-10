@@ -1,0 +1,31 @@
+{
+  "name": "@codehong-dev/codehong-lib-react-native-widget",
+  "version": "0.0.1",
+  "description": "CodeHong React Native Widget Library",
+  "main": "index.ts",
+  "types": "index.ts",
+  "files": [
+    "src",
+    "index.ts"
+  ],
+  "keywords": [
+    "react-native",
+    "widget",
+    "codehong",
+    "ui",
+    "component"
+  ],
+  "license": "MIT",
+  "peerDependencies": {
+    "react": ">=18.0.0",
+    "react-native": ">=0.72.0"
+  },
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com",
+    "access": "public"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/cOdehOng-dev/codehong-lib-react-native-widget.git"
+  }
+}
