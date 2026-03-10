@@ -24,7 +24,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     window = UIWindow(frame: UIScreen.main.bounds)
 
     factory.startReactNative(
-      withModuleName: "codehongLibReactNativeWidget",
+      withModuleName: "code-hong-lib-react-native-widget",
       in: window,
       launchOptions: launchOptions
     )
