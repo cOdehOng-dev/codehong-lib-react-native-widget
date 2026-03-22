@@ -1,12 +1,18 @@
 import { HongWidgetCommonBuilder } from '../../HongWidgetCommonBuilder';
-import { HongTextCountOption, type HongCountTypeEntry } from './HongTextCountOption';
+import {
+  HongTextCountOption,
+  type HongCountTypeEntry,
+} from './HongTextCountOption';
 import type { HongColorEntry } from '../../rule/color/HongColor';
 import type { HongTypoEntry } from '../../rule/typo/HongTypo';
 
-export class HongTextCountBuilder extends HongWidgetCommonBuilder<HongTextCountOption, HongTextCountBuilder> {
+export class HongTextCountBuilder extends HongWidgetCommonBuilder<
+  HongTextCountOption,
+  HongTextCountBuilder
+> {
   readonly option: HongTextCountOption = new HongTextCountOption();
 
-  protected self(): HongTextCountBuilder {
+  protected builder(): HongTextCountBuilder {
     return this;
   }
 
@@ -25,8 +31,11 @@ export class HongTextCountBuilder extends HongWidgetCommonBuilder<HongTextCountO
     return this;
   }
 
-  countColor(color: HongColorEntry | string | null | undefined): HongTextCountBuilder {
-    this.option.countColorHex = typeof color === 'string' ? color : (color?.hex ?? '');
+  countColor(
+    color: HongColorEntry | string | null | undefined,
+  ): HongTextCountBuilder {
+    this.option.countColorHex =
+      typeof color === 'string' ? color : color?.hex ?? '';
     return this;
   }
 
@@ -40,8 +49,11 @@ export class HongTextCountBuilder extends HongWidgetCommonBuilder<HongTextCountO
     return this;
   }
 
-  unitColor(color: HongColorEntry | string | null | undefined): HongTextCountBuilder {
-    this.option.unitColorHex = typeof color === 'string' ? color : (color?.hex ?? '');
+  unitColor(
+    color: HongColorEntry | string | null | undefined,
+  ): HongTextCountBuilder {
+    this.option.unitColorHex =
+      typeof color === 'string' ? color : color?.hex ?? '';
     return this;
   }
 

@@ -7,19 +7,26 @@ import type { HongRadiusInfo } from '../../rule/radius/HongRadiusInfo';
 import type { HongBorderInfo } from '../../rule/HongBorderInfo';
 import type { HongShadowInfo } from '../../rule/HongShadowInfo';
 
-export class HongImageBuilder extends HongWidgetCommonBuilder<HongImageOption, HongImageBuilder> {
+export class HongImageBuilder extends HongWidgetCommonBuilder<
+  HongImageOption,
+  HongImageBuilder
+> {
   readonly option: HongImageOption = new HongImageOption();
 
-  protected self(): HongImageBuilder {
+  protected builder(): HongImageBuilder {
     return this;
   }
 
-  imageSource(source: ImageSourcePropType | string | null | undefined): HongImageBuilder {
+  imageSource(
+    source: ImageSourcePropType | string | null | undefined,
+  ): HongImageBuilder {
     this.option.imageSource = source ?? null;
     return this;
   }
 
-  placeholder(placeholder: ImageSourcePropType | null | undefined): HongImageBuilder {
+  placeholder(
+    placeholder: ImageSourcePropType | null | undefined,
+  ): HongImageBuilder {
     this.option.placeholder = placeholder ?? null;
     return this;
   }
@@ -54,8 +61,11 @@ export class HongImageBuilder extends HongWidgetCommonBuilder<HongImageOption, H
     return this;
   }
 
-  imageColor(color: HongColorEntry | string | null | undefined): HongImageBuilder {
-    this.option.imageColorHex = typeof color === 'string' ? color : (color?.hex ?? null);
+  imageColor(
+    color: HongColorEntry | string | null | undefined,
+  ): HongImageBuilder {
+    this.option.imageColorHex =
+      typeof color === 'string' ? color : color?.hex ?? null;
     return this;
   }
 

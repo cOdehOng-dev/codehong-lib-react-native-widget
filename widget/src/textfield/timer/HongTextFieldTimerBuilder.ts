@@ -3,10 +3,13 @@ import { HongTextFieldTimerOption } from './HongTextFieldTimerOption';
 import type { HongColorEntry } from '../../rule/color/HongColor';
 import type { HongTypoEntry } from '../../rule/typo/HongTypo';
 
-export class HongTextFieldTimerBuilder extends HongWidgetCommonBuilder<HongTextFieldTimerOption, HongTextFieldTimerBuilder> {
+export class HongTextFieldTimerBuilder extends HongWidgetCommonBuilder<
+  HongTextFieldTimerOption,
+  HongTextFieldTimerBuilder
+> {
   readonly option: HongTextFieldTimerOption = new HongTextFieldTimerOption();
 
-  protected self(): HongTextFieldTimerBuilder {
+  protected builder(): HongTextFieldTimerBuilder {
     return this;
   }
 
@@ -36,7 +39,8 @@ export class HongTextFieldTimerBuilder extends HongWidgetCommonBuilder<HongTextF
   }
 
   placeholderColor(color: HongColorEntry | string): HongTextFieldTimerBuilder {
-    this.option.placeholderColorHex = typeof color === 'string' ? color : color.hex;
+    this.option.placeholderColorHex =
+      typeof color === 'string' ? color : color.hex;
     return this;
   }
 
@@ -60,18 +64,27 @@ export class HongTextFieldTimerBuilder extends HongWidgetCommonBuilder<HongTextF
     return this;
   }
 
-  underlineFocusColor(color: HongColorEntry | string): HongTextFieldTimerBuilder {
-    this.option.underlineFocusColorHex = typeof color === 'string' ? color : color.hex;
+  underlineFocusColor(
+    color: HongColorEntry | string,
+  ): HongTextFieldTimerBuilder {
+    this.option.underlineFocusColorHex =
+      typeof color === 'string' ? color : color.hex;
     return this;
   }
 
-  underlineOutFocusColor(color: HongColorEntry | string): HongTextFieldTimerBuilder {
-    this.option.underlineOutFocusColorHex = typeof color === 'string' ? color : color.hex;
+  underlineOutFocusColor(
+    color: HongColorEntry | string,
+  ): HongTextFieldTimerBuilder {
+    this.option.underlineOutFocusColorHex =
+      typeof color === 'string' ? color : color.hex;
     return this;
   }
 
-  underlineFinishColor(color: HongColorEntry | string | null): HongTextFieldTimerBuilder {
-    this.option.underlineFinishColorHex = color === null ? null : typeof color === 'string' ? color : color.hex;
+  underlineFinishColor(
+    color: HongColorEntry | string | null,
+  ): HongTextFieldTimerBuilder {
+    this.option.underlineFinishColorHex =
+      color === null ? null : typeof color === 'string' ? color : color.hex;
     return this;
   }
 
@@ -96,7 +109,8 @@ export class HongTextFieldTimerBuilder extends HongWidgetCommonBuilder<HongTextF
   }
 
   countDownColor(color: HongColorEntry | string): HongTextFieldTimerBuilder {
-    this.option.countDownColorHex = typeof color === 'string' ? color : color.hex;
+    this.option.countDownColorHex =
+      typeof color === 'string' ? color : color.hex;
     return this;
   }
 
@@ -110,7 +124,9 @@ export class HongTextFieldTimerBuilder extends HongWidgetCommonBuilder<HongTextF
     return this;
   }
 
-  copy(inject: HongTextFieldTimerOption | null | undefined): HongTextFieldTimerBuilder {
+  copy(
+    inject: HongTextFieldTimerOption | null | undefined,
+  ): HongTextFieldTimerBuilder {
     if (!inject) return new HongTextFieldTimerBuilder();
     return new HongTextFieldTimerBuilder()
       .width(inject.width)

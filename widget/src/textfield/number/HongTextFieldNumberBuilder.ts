@@ -6,20 +6,26 @@ import type { HongTypoEntry } from '../../rule/typo/HongTypo';
 import type { HongSpacingInfo } from '../../rule/HongSpacingInfo';
 import type { HongKeyboardActionTypeEntry } from '../../rule/keyboard/HongKeyboardActionType';
 
-export class HongTextFieldNumberBuilder extends HongWidgetCommonBuilder<HongTextFieldNumberOption, HongTextFieldNumberBuilder> {
+export class HongTextFieldNumberBuilder extends HongWidgetCommonBuilder<
+  HongTextFieldNumberOption,
+  HongTextFieldNumberBuilder
+> {
   readonly option: HongTextFieldNumberOption = new HongTextFieldNumberOption();
 
-  protected self(): HongTextFieldNumberBuilder {
+  protected builder(): HongTextFieldNumberBuilder {
     return this;
   }
 
-  placeholder(placeholder: string | null | undefined): HongTextFieldNumberBuilder {
+  placeholder(
+    placeholder: string | null | undefined,
+  ): HongTextFieldNumberBuilder {
     this.option.placeholder = placeholder ?? null;
     return this;
   }
 
   placeholderColor(color: HongColorEntry | string): HongTextFieldNumberBuilder {
-    this.option.placeholderColorHex = typeof color === 'string' ? color : color.hex;
+    this.option.placeholderColorHex =
+      typeof color === 'string' ? color : color.hex;
     return this;
   }
 
@@ -43,7 +49,9 @@ export class HongTextFieldNumberBuilder extends HongWidgetCommonBuilder<HongText
     return this;
   }
 
-  clearIcon(icon: ImageSourcePropType | null | undefined): HongTextFieldNumberBuilder {
+  clearIcon(
+    icon: ImageSourcePropType | null | undefined,
+  ): HongTextFieldNumberBuilder {
     this.option.clearIcon = icon ?? null;
     return this;
   }
@@ -68,7 +76,9 @@ export class HongTextFieldNumberBuilder extends HongWidgetCommonBuilder<HongText
     return this;
   }
 
-  keyboardActionType(action: HongKeyboardActionTypeEntry): HongTextFieldNumberBuilder {
+  keyboardActionType(
+    action: HongKeyboardActionTypeEntry,
+  ): HongTextFieldNumberBuilder {
     this.option.keyboardActionType = action;
     return this;
   }
@@ -78,12 +88,16 @@ export class HongTextFieldNumberBuilder extends HongWidgetCommonBuilder<HongText
     return this;
   }
 
-  onTextChanged(onTextChanged: (text: string) => void): HongTextFieldNumberBuilder {
+  onTextChanged(
+    onTextChanged: (text: string) => void,
+  ): HongTextFieldNumberBuilder {
     this.option.onTextChanged = onTextChanged;
     return this;
   }
 
-  copy(inject: HongTextFieldNumberOption | null | undefined): HongTextFieldNumberBuilder {
+  copy(
+    inject: HongTextFieldNumberOption | null | undefined,
+  ): HongTextFieldNumberBuilder {
     if (!inject) return new HongTextFieldNumberBuilder();
     return new HongTextFieldNumberBuilder()
       .width(inject.width)

@@ -3,10 +3,13 @@ import { HongTextUpDownOption } from './HongTextUpDownOption';
 import type { HongColorEntry } from '../../rule/color/HongColor';
 import type { HongTypoEntry } from '../../rule/typo/HongTypo';
 
-export class HongTextUpDownBuilder extends HongWidgetCommonBuilder<HongTextUpDownOption, HongTextUpDownBuilder> {
+export class HongTextUpDownBuilder extends HongWidgetCommonBuilder<
+  HongTextUpDownOption,
+  HongTextUpDownBuilder
+> {
   readonly option: HongTextUpDownOption = new HongTextUpDownOption();
 
-  protected self(): HongTextUpDownBuilder {
+  protected builder(): HongTextUpDownBuilder {
     return this;
   }
 
@@ -25,8 +28,11 @@ export class HongTextUpDownBuilder extends HongWidgetCommonBuilder<HongTextUpDow
     return this;
   }
 
-  displayColor(color: HongColorEntry | string | null | undefined): HongTextUpDownBuilder {
-    this.option.displayColorHex = typeof color === 'string' ? color : (color?.hex ?? '');
+  displayColor(
+    color: HongColorEntry | string | null | undefined,
+  ): HongTextUpDownBuilder {
+    this.option.displayColorHex =
+      typeof color === 'string' ? color : color?.hex ?? '';
     return this;
   }
 
@@ -50,13 +56,19 @@ export class HongTextUpDownBuilder extends HongWidgetCommonBuilder<HongTextUpDow
     return this;
   }
 
-  borderColor(color: HongColorEntry | string | null | undefined): HongTextUpDownBuilder {
-    this.option.borderColorHex = typeof color === 'string' ? color : (color?.hex ?? '');
+  borderColor(
+    color: HongColorEntry | string | null | undefined,
+  ): HongTextUpDownBuilder {
+    this.option.borderColorHex =
+      typeof color === 'string' ? color : color?.hex ?? '';
     return this;
   }
 
-  iconColor(color: HongColorEntry | string | null | undefined): HongTextUpDownBuilder {
-    this.option.iconColorHex = typeof color === 'string' ? color : (color?.hex ?? '');
+  iconColor(
+    color: HongColorEntry | string | null | undefined,
+  ): HongTextUpDownBuilder {
+    this.option.iconColorHex =
+      typeof color === 'string' ? color : color?.hex ?? '';
     return this;
   }
 

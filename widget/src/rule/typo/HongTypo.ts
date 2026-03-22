@@ -1,9 +1,9 @@
 import { HongFont, type HongFontEntry } from './HongFont';
 
-export interface HongTypoEntry {
+export type HongTypoEntry = {
   styleName: string;
   code: number;
-}
+};
 
 export const HongTypo = {
   TITLE_36_B: { styleName: 'title_36_b', code: 10 },
@@ -51,51 +51,121 @@ export type HongTypoKey = keyof typeof HongTypo;
 
 export function hongTypoSize(typo: HongTypoEntry): number {
   switch (typo.styleName) {
-    case 'title_36_b': case 'title_36': return 36;
-    case 'title_28_b': case 'title_28': return 28;
-    case 'title_26_b': case 'title_26': return 26;
-    case 'title_24_b': case 'title_24': return 24;
-    case 'title_22_b': case 'title_22': return 22;
-    case 'body_20_b':  case 'body_20':  return 20;
-    case 'body_18_b':  case 'body_18':  return 18;
-    case 'body_17_b':  case 'body_17':  return 17;
-    case 'body_16_b':  case 'body_16':  return 16;
-    case 'body_15_b':  case 'body_15':  return 15;
-    case 'body_14_b':  case 'body_14':  return 14;
-    case 'body_13_b':  case 'body_13':  return 13;
-    case 'contents_22_b': return 22;
-    case 'contents_20_b': case 'contents_20': return 20;
-    case 'contents_16_b': case 'contents_16': return 16;
-    case 'contents_14': return 14;
-    case 'contents_12_b': case 'contents_12': return 12;
-    case 'contents_10_b': case 'contents_10': return 10;
-    default: return 14;
+    case 'title_36_b':
+    case 'title_36':
+      return 36;
+    case 'title_28_b':
+    case 'title_28':
+      return 28;
+    case 'title_26_b':
+    case 'title_26':
+      return 26;
+    case 'title_24_b':
+    case 'title_24':
+      return 24;
+    case 'title_22_b':
+    case 'title_22':
+      return 22;
+    case 'body_20_b':
+    case 'body_20':
+      return 20;
+    case 'body_18_b':
+    case 'body_18':
+      return 18;
+    case 'body_17_b':
+    case 'body_17':
+      return 17;
+    case 'body_16_b':
+    case 'body_16':
+      return 16;
+    case 'body_15_b':
+    case 'body_15':
+      return 15;
+    case 'body_14_b':
+    case 'body_14':
+      return 14;
+    case 'body_13_b':
+    case 'body_13':
+      return 13;
+    case 'contents_22_b':
+      return 22;
+    case 'contents_20_b':
+    case 'contents_20':
+      return 20;
+    case 'contents_16_b':
+    case 'contents_16':
+      return 16;
+    case 'contents_14':
+      return 14;
+    case 'contents_12_b':
+    case 'contents_12':
+      return 12;
+    case 'contents_10_b':
+    case 'contents_10':
+      return 10;
+    default:
+      return 14;
   }
 }
 
 export function hongTypoLineHeight(typo: HongTypoEntry): number {
   switch (typo.styleName) {
-    case 'title_36_b': case 'title_36': return 44;
-    case 'title_28_b': case 'title_28': return 36;
-    case 'title_26_b': case 'title_26': return 34;
-    case 'title_24_b': case 'title_24': return 32;
-    case 'title_22_b': case 'title_22': return 28;
-    case 'body_20_b':  case 'body_20':  return 28;
-    case 'body_18_b':  case 'body_18':  return 24;
-    case 'body_17_b':  case 'body_17':  return 23;
-    case 'body_16_b':  case 'body_16':  return 22;
-    case 'body_15_b':  case 'body_15':  return 20;
-    case 'body_14_b':  case 'body_14':  return 19;
-    case 'body_13_b':  case 'body_13':  return 18;
-    case 'contents_22_b': return 32;
-    case 'contents_20_b': return 26;
-    case 'contents_16_b': return 24;
-    case 'contents_12_b': case 'contents_12': return 20;
-    case 'contents_20': return 30;
-    case 'contents_16': return 26;
-    case 'contents_14': return 24;
-    case 'contents_10_b': case 'contents_10': return 18;
-    default: return 19;
+    case 'title_36_b':
+    case 'title_36':
+      return 44;
+    case 'title_28_b':
+    case 'title_28':
+      return 36;
+    case 'title_26_b':
+    case 'title_26':
+      return 34;
+    case 'title_24_b':
+    case 'title_24':
+      return 32;
+    case 'title_22_b':
+    case 'title_22':
+      return 28;
+    case 'body_20_b':
+    case 'body_20':
+      return 28;
+    case 'body_18_b':
+    case 'body_18':
+      return 24;
+    case 'body_17_b':
+    case 'body_17':
+      return 23;
+    case 'body_16_b':
+    case 'body_16':
+      return 22;
+    case 'body_15_b':
+    case 'body_15':
+      return 20;
+    case 'body_14_b':
+    case 'body_14':
+      return 19;
+    case 'body_13_b':
+    case 'body_13':
+      return 18;
+    case 'contents_22_b':
+      return 32;
+    case 'contents_20_b':
+      return 26;
+    case 'contents_16_b':
+      return 24;
+    case 'contents_12_b':
+    case 'contents_12':
+      return 20;
+    case 'contents_20':
+      return 30;
+    case 'contents_16':
+      return 26;
+    case 'contents_14':
+      return 24;
+    case 'contents_10_b':
+    case 'contents_10':
+      return 18;
+    default:
+      return 19;
   }
 }
 
@@ -103,6 +173,10 @@ export function isHongTypoBold(typo: HongTypoEntry): boolean {
   return typo.styleName.endsWith('b');
 }
 
-export function hongTypoFontType(typo: HongTypoEntry | null | undefined): HongFontEntry {
-  return isHongTypoBold(typo as HongTypoEntry) ? HongFont.PRETENDARD_700 : HongFont.PRETENDARD_400;
+export function hongTypoFontType(
+  typo: HongTypoEntry | null | undefined,
+): HongFontEntry {
+  return isHongTypoBold(typo as HongTypoEntry)
+    ? HongFont.PRETENDARD_700
+    : HongFont.PRETENDARD_400;
 }

@@ -5,10 +5,14 @@ import type { HongTypoEntry } from '../../rule/typo/HongTypo';
 import type { HongRadiusInfo } from '../../rule/radius/HongRadiusInfo';
 import type { HongInputStateEntry } from '../../rule/HongInputState';
 
-export class HongTextFieldBorderSelectBuilder extends HongWidgetCommonBuilder<HongTextFieldBorderSelectOption, HongTextFieldBorderSelectBuilder> {
-  readonly option: HongTextFieldBorderSelectOption = new HongTextFieldBorderSelectOption();
+export class HongTextFieldBorderSelectBuilder extends HongWidgetCommonBuilder<
+  HongTextFieldBorderSelectOption,
+  HongTextFieldBorderSelectBuilder
+> {
+  readonly option: HongTextFieldBorderSelectOption =
+    new HongTextFieldBorderSelectOption();
 
-  protected self(): HongTextFieldBorderSelectBuilder {
+  protected builder(): HongTextFieldBorderSelectBuilder {
     return this;
   }
 
@@ -17,18 +21,27 @@ export class HongTextFieldBorderSelectBuilder extends HongWidgetCommonBuilder<Ho
     return this;
   }
 
-  enableBorderColor(color: HongColorEntry | string): HongTextFieldBorderSelectBuilder {
-    this.option.enableBorderColorHex = typeof color === 'string' ? color : color.hex;
+  enableBorderColor(
+    color: HongColorEntry | string,
+  ): HongTextFieldBorderSelectBuilder {
+    this.option.enableBorderColorHex =
+      typeof color === 'string' ? color : color.hex;
     return this;
   }
 
-  focusedBorderColor(color: HongColorEntry | string): HongTextFieldBorderSelectBuilder {
-    this.option.focusedBorderColorHex = typeof color === 'string' ? color : color.hex;
+  focusedBorderColor(
+    color: HongColorEntry | string,
+  ): HongTextFieldBorderSelectBuilder {
+    this.option.focusedBorderColorHex =
+      typeof color === 'string' ? color : color.hex;
     return this;
   }
 
-  inputBackgroundColor(color: HongColorEntry | string): HongTextFieldBorderSelectBuilder {
-    this.option.inputBackgroundColorHex = typeof color === 'string' ? color : color.hex;
+  inputBackgroundColor(
+    color: HongColorEntry | string,
+  ): HongTextFieldBorderSelectBuilder {
+    this.option.inputBackgroundColorHex =
+      typeof color === 'string' ? color : color.hex;
     return this;
   }
 
@@ -52,8 +65,11 @@ export class HongTextFieldBorderSelectBuilder extends HongWidgetCommonBuilder<Ho
     return this;
   }
 
-  inputTextColor(color: HongColorEntry | string): HongTextFieldBorderSelectBuilder {
-    this.option.inputTextColorHex = typeof color === 'string' ? color : color.hex;
+  inputTextColor(
+    color: HongColorEntry | string,
+  ): HongTextFieldBorderSelectBuilder {
+    this.option.inputTextColorHex =
+      typeof color === 'string' ? color : color.hex;
     return this;
   }
 
@@ -62,8 +78,11 @@ export class HongTextFieldBorderSelectBuilder extends HongWidgetCommonBuilder<Ho
     return this;
   }
 
-  placeholderColor(color: HongColorEntry | string): HongTextFieldBorderSelectBuilder {
-    this.option.placeholderColorHex = typeof color === 'string' ? color : color.hex;
+  placeholderColor(
+    color: HongColorEntry | string,
+  ): HongTextFieldBorderSelectBuilder {
+    this.option.placeholderColorHex =
+      typeof color === 'string' ? color : color.hex;
     return this;
   }
 
@@ -107,12 +126,16 @@ export class HongTextFieldBorderSelectBuilder extends HongWidgetCommonBuilder<Ho
     return this;
   }
 
-  onChangeInput(onChange: (text: string) => void): HongTextFieldBorderSelectBuilder {
+  onChangeInput(
+    onChange: (text: string) => void,
+  ): HongTextFieldBorderSelectBuilder {
     this.option.onChangeInput = onChange;
     return this;
   }
 
-  copy(inject: HongTextFieldBorderSelectOption | null | undefined): HongTextFieldBorderSelectBuilder {
+  copy(
+    inject: HongTextFieldBorderSelectOption | null | undefined,
+  ): HongTextFieldBorderSelectBuilder {
     if (!inject) return new HongTextFieldBorderSelectBuilder();
     return new HongTextFieldBorderSelectBuilder()
       .width(inject.width)

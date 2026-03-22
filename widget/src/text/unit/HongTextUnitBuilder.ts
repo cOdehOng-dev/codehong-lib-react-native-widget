@@ -3,10 +3,13 @@ import { HongTextUnitOption } from './HongTextUnitOption';
 import { HongTextOption } from '../def/HongTextOption';
 import { HongTextBuilder } from '../def/HongTextBuilder';
 
-export class HongTextUnitBuilder extends HongWidgetCommonBuilder<HongTextUnitOption, HongTextUnitBuilder> {
+export class HongTextUnitBuilder extends HongWidgetCommonBuilder<
+  HongTextUnitOption,
+  HongTextUnitBuilder
+> {
   readonly option: HongTextUnitOption = new HongTextUnitOption();
 
-  protected self(): HongTextUnitBuilder {
+  protected builder(): HongTextUnitBuilder {
     return this;
   }
 

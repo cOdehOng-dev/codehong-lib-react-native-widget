@@ -1,16 +1,23 @@
 import { HongWidgetCommonBuilder } from '../../HongWidgetCommonBuilder';
-import { HongTextOption } from './HongTextOption';
-import { HongColor, type HongColorEntry } from '../../rule/color/HongColor';
+import { type HongColorEntry } from '../../rule/color/HongColor';
+import { type HongTextAlignEntry } from '../../rule/HongTextAlign';
+import { type HongTextLineBreakEntry } from '../../rule/HongTextLineBreak';
+import { type HongTextOverflowEntry } from '../../rule/HongTextOverflow';
 import { HongFont, type HongFontEntry } from '../../rule/typo/HongFont';
-import { type HongTypoEntry, hongTypoSize, isHongTypoBold } from '../../rule/typo/HongTypo';
-import { HongTextAlign, type HongTextAlignEntry } from '../../rule/HongTextAlign';
-import { HongTextOverflow, type HongTextOverflowEntry } from '../../rule/HongTextOverflow';
-import { HongTextLineBreak, type HongTextLineBreakEntry } from '../../rule/HongTextLineBreak';
+import {
+  type HongTypoEntry,
+  hongTypoSize,
+  isHongTypoBold,
+} from '../../rule/typo/HongTypo';
+import { HongTextOption } from './HongTextOption';
 
-export class HongTextBuilder extends HongWidgetCommonBuilder<HongTextOption, HongTextBuilder> {
+export class HongTextBuilder extends HongWidgetCommonBuilder<
+  HongTextOption,
+  HongTextBuilder
+> {
   readonly option: HongTextOption = new HongTextOption();
 
-  protected self(): HongTextBuilder {
+  protected builder(): HongTextBuilder {
     return this;
   }
 
@@ -18,7 +25,8 @@ export class HongTextBuilder extends HongWidgetCommonBuilder<HongTextOption, Hon
     if (!inject) return;
 
     if (!this.option.colorHex) {
-      this.option.colorHex = inject.colorHex ?? HongTextOption.DEFAULT_LABEL_COLOR.hex;
+      this.option.colorHex =
+        inject.colorHex ?? HongTextOption.DEFAULT_LABEL_COLOR.hex;
     }
 
     if (!this.option.typography && inject.typography) {
@@ -79,7 +87,9 @@ export class HongTextBuilder extends HongWidgetCommonBuilder<HongTextOption, Hon
     return this;
   }
 
-  overflow(overflow: HongTextOverflowEntry | null | undefined): HongTextBuilder {
+  overflow(
+    overflow: HongTextOverflowEntry | null | undefined,
+  ): HongTextBuilder {
     this.option.overflow = overflow ?? HongTextOption.DEFAULT_OVERFLOW;
     return this;
   }
@@ -99,7 +109,9 @@ export class HongTextBuilder extends HongWidgetCommonBuilder<HongTextOption, Hon
     return this;
   }
 
-  spanTextBuilderList(list: HongTextBuilder[] | null | undefined): HongTextBuilder {
+  spanTextBuilderList(
+    list: HongTextBuilder[] | null | undefined,
+  ): HongTextBuilder {
     this.option.spanTextBuilderList = list ?? null;
     return this;
   }

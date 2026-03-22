@@ -5,10 +5,13 @@ import type { HongSpacingInfo } from '../../rule/HongSpacingInfo';
 import type { HongTextOption } from '../def/HongTextOption';
 import { HongTextBuilder } from '../def/HongTextBuilder';
 
-export class HongTextCheckBuilder extends HongWidgetCommonBuilder<HongTextCheckOption, HongTextCheckBuilder> {
+export class HongTextCheckBuilder extends HongWidgetCommonBuilder<
+  HongTextCheckOption,
+  HongTextCheckBuilder
+> {
   readonly option: HongTextCheckOption = new HongTextCheckOption();
 
-  protected self(): HongTextCheckBuilder {
+  protected builder(): HongTextCheckBuilder {
     return this;
   }
 
@@ -39,13 +42,19 @@ export class HongTextCheckBuilder extends HongWidgetCommonBuilder<HongTextCheckO
     return this;
   }
 
-  checkColor(color: HongColorEntry | string | null | undefined): HongTextCheckBuilder {
-    this.option.checkColor = typeof color === 'string' ? color : (color?.hex ?? '');
+  checkColor(
+    color: HongColorEntry | string | null | undefined,
+  ): HongTextCheckBuilder {
+    this.option.checkColor =
+      typeof color === 'string' ? color : color?.hex ?? '';
     return this;
   }
 
-  uncheckColor(color: HongColorEntry | string | null | undefined): HongTextCheckBuilder {
-    this.option.uncheckColor = typeof color === 'string' ? color : (color?.hex ?? '');
+  uncheckColor(
+    color: HongColorEntry | string | null | undefined,
+  ): HongTextCheckBuilder {
+    this.option.uncheckColor =
+      typeof color === 'string' ? color : color?.hex ?? '';
     return this;
   }
 

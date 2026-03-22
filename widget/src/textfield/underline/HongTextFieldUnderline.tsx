@@ -12,22 +12,27 @@ import type { HongTextFieldUnderlineOption } from './HongTextFieldUnderlineOptio
 import { hongColorHexToRNColor } from '../../rule/color/HongColor';
 import { isMatchParent } from '../../rule/HongLayoutParam';
 import { hongTypoSize, hongTypoFontType } from '../../rule/typo/HongTypo';
-import { hongKeyboardTypeToRN, isPasswordType } from '../../rule/keyboard/HongKeyboardType';
+import {
+  hongKeyboardTypeToRN,
+  isPasswordType,
+} from '../../rule/keyboard/HongKeyboardType';
 import { hongKeyboardActionTypeToRN } from '../../rule/keyboard/HongKeyboardActionType';
 
 interface HongTextFieldUnderlineProps {
   option: HongTextFieldUnderlineOption;
 }
 
-export function HongTextFieldUnderline({ option }: HongTextFieldUnderlineProps): React.ReactElement | null {
-  if (!option.isValidComponent) return null;
-
-  const [inputText, setInputText] = useState(option.input ?? '');
-  const [isFocused, setIsFocused] = useState(false);
+export function HongTextFieldUnderline({
+  option,
+}: HongTextFieldUnderlineProps): React.ReactElement | null {
+  const [inputText, setInputText] = useState<string>(option.input ?? '');
+  const [isFocused, setIsFocused] = useState<boolean>(false);
 
   useEffect(() => {
     setInputText(option.input ?? '');
   }, [option.input]);
+
+  if (!option.isValidComponent) return null;
 
   const handleChangeText = (text: string) => {
     setInputText(text);
@@ -77,11 +82,15 @@ export function HongTextFieldUnderline({ option }: HongTextFieldUnderlineProps):
           style={inputStyle}
           value={inputText}
           onChangeText={handleChangeText}
-          onSubmitEditing={() => { if (option.useHideKeyboard) Keyboard.dismiss(); }}
+          onSubmitEditing={() => {
+            if (option.useHideKeyboard) Keyboard.dismiss();
+          }}
           onFocus={() => setIsFocused(true)}
           onBlur={() => setIsFocused(false)}
           placeholder={option.placeholder ?? undefined}
-          placeholderTextColor={hongColorHexToRNColor(option.placeholderColorHex)}
+          placeholderTextColor={hongColorHexToRNColor(
+            option.placeholderColorHex,
+          )}
           keyboardType={hongKeyboardTypeToRN(option.keyboardType)}
           returnKeyType={hongKeyboardActionTypeToRN(option.keyboardActionType)}
           secureTextEntry={isPasswordType(option.keyboardType)}
@@ -103,7 +112,10 @@ export function HongTextFieldUnderline({ option }: HongTextFieldUnderlineProps):
           >
             <Image
               source={option.clearIcon!}
-              style={{ width: option.clearIconSize, height: option.clearIconSize }}
+              style={{
+                width: option.clearIconSize,
+                height: option.clearIconSize,
+              }}
               resizeMode="contain"
             />
           </TouchableOpacity>
@@ -111,7 +123,12 @@ export function HongTextFieldUnderline({ option }: HongTextFieldUnderlineProps):
       </View>
 
       {/* 언더라인 */}
-      <View style={[styles.underline, { height: option.underlineHeight, backgroundColor: underlineColor }]} />
+      <View
+        style={[
+          styles.underline,
+          { height: option.underlineHeight, backgroundColor: underlineColor },
+        ]}
+      />
     </View>
   );
 }

@@ -1,9 +1,9 @@
 import type { TextStyle } from 'react-native';
 
-export interface HongFontEntry {
+export type HongFontEntry = {
   weight: NonNullable<TextStyle['fontWeight']>;
   fileName: string;
-}
+};
 
 export const HongFont = {
   PRETENDARD_400: { weight: '400' as const, fileName: 'Pretendard-Regular' },

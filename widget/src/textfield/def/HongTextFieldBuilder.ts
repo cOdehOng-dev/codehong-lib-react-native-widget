@@ -9,10 +9,13 @@ import type { HongSpacingInfo } from '../../rule/HongSpacingInfo';
 import type { HongKeyboardTypeEntry } from '../../rule/keyboard/HongKeyboardType';
 import type { HongKeyboardActionTypeEntry } from '../../rule/keyboard/HongKeyboardActionType';
 
-export class HongTextFieldBuilder extends HongWidgetCommonBuilder<HongTextFieldOption, HongTextFieldBuilder> {
+export class HongTextFieldBuilder extends HongWidgetCommonBuilder<
+  HongTextFieldOption,
+  HongTextFieldBuilder
+> {
   readonly option: HongTextFieldOption = new HongTextFieldOption();
 
-  protected self(): HongTextFieldBuilder {
+  protected builder(): HongTextFieldBuilder {
     return this;
   }
 
@@ -31,8 +34,11 @@ export class HongTextFieldBuilder extends HongWidgetCommonBuilder<HongTextFieldO
     return this;
   }
 
-  placeholderColor(color: HongColorEntry | string | null | undefined): HongTextFieldBuilder {
-    this.option.placeholderColorHex = typeof color === 'string' ? color : (color?.hex ?? '');
+  placeholderColor(
+    color: HongColorEntry | string | null | undefined,
+  ): HongTextFieldBuilder {
+    this.option.placeholderColorHex =
+      typeof color === 'string' ? color : color?.hex ?? '';
     return this;
   }
 
@@ -56,12 +62,17 @@ export class HongTextFieldBuilder extends HongWidgetCommonBuilder<HongTextFieldO
     return this;
   }
 
-  inputColor(color: HongColorEntry | string | null | undefined): HongTextFieldBuilder {
-    this.option.inputColorHex = typeof color === 'string' ? color : (color?.hex ?? '');
+  inputColor(
+    color: HongColorEntry | string | null | undefined,
+  ): HongTextFieldBuilder {
+    this.option.inputColorHex =
+      typeof color === 'string' ? color : color?.hex ?? '';
     return this;
   }
 
-  clearIcon(icon: ImageSourcePropType | null | undefined): HongTextFieldBuilder {
+  clearIcon(
+    icon: ImageSourcePropType | null | undefined,
+  ): HongTextFieldBuilder {
     this.option.clearIcon = icon ?? null;
     return this;
   }
@@ -76,8 +87,11 @@ export class HongTextFieldBuilder extends HongWidgetCommonBuilder<HongTextFieldO
     return this;
   }
 
-  cursorColor(color: HongColorEntry | string | null | undefined): HongTextFieldBuilder {
-    this.option.cursorColorHex = typeof color === 'string' ? color : (color?.hex ?? '');
+  cursorColor(
+    color: HongColorEntry | string | null | undefined,
+  ): HongTextFieldBuilder {
+    this.option.cursorColorHex =
+      typeof color === 'string' ? color : color?.hex ?? '';
     return this;
   }
 
@@ -106,12 +120,16 @@ export class HongTextFieldBuilder extends HongWidgetCommonBuilder<HongTextFieldO
     return this;
   }
 
-  keyboardActionType(action: HongKeyboardActionTypeEntry): HongTextFieldBuilder {
+  keyboardActionType(
+    action: HongKeyboardActionTypeEntry,
+  ): HongTextFieldBuilder {
     this.option.keyboardActionType = action;
     return this;
   }
 
-  autoCapitalize(autoCapitalize: 'none' | 'sentences' | 'words' | 'characters'): HongTextFieldBuilder {
+  autoCapitalize(
+    autoCapitalize: 'none' | 'sentences' | 'words' | 'characters',
+  ): HongTextFieldBuilder {
     this.option.autoCapitalize = autoCapitalize;
     return this;
   }

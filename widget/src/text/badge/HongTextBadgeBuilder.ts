@@ -6,10 +6,13 @@ import type { HongShadowInfo } from '../../rule/HongShadowInfo';
 import type { HongRadiusInfo } from '../../rule/radius/HongRadiusInfo';
 import type { HongTypoEntry } from '../../rule/typo/HongTypo';
 
-export class HongTextBadgeBuilder extends HongWidgetCommonBuilder<HongTextBadgeOption, HongTextBadgeBuilder> {
+export class HongTextBadgeBuilder extends HongWidgetCommonBuilder<
+  HongTextBadgeOption,
+  HongTextBadgeBuilder
+> {
   readonly option: HongTextBadgeOption = new HongTextBadgeOption();
 
-  protected self(): HongTextBadgeBuilder {
+  protected builder(): HongTextBadgeBuilder {
     return this;
   }
 
@@ -33,8 +36,11 @@ export class HongTextBadgeBuilder extends HongWidgetCommonBuilder<HongTextBadgeO
     return this;
   }
 
-  textColor(color: HongColorEntry | string | null | undefined): HongTextBadgeBuilder {
-    this.option.textColorHex = typeof color === 'string' ? color : (color?.hex ?? null);
+  textColor(
+    color: HongColorEntry | string | null | undefined,
+  ): HongTextBadgeBuilder {
+    this.option.textColorHex =
+      typeof color === 'string' ? color : color?.hex ?? null;
     return this;
   }
 

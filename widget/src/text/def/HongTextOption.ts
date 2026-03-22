@@ -1,16 +1,33 @@
 import type { HongWidgetCommonOption } from '../../HongWidgetCommonOption';
-import { HongWidgetType, type HongWidgetTypeEntry } from '../../rule/HongWidgetType';
-import { HongLayoutParam } from '../../rule/HongLayoutParam';
-import { defaultHongSpacingInfo } from '../../rule/HongSpacingInfo';
-import { defaultHongRadiusInfo } from '../../rule/radius/HongRadiusInfo';
-import { defaultHongShadowInfo } from '../../rule/HongShadowInfo';
-import { defaultHongBorderInfo } from '../../rule/HongBorderInfo';
 import { HongColor } from '../../rule/color/HongColor';
-import { HongTextAlign, type HongTextAlignEntry } from '../../rule/HongTextAlign';
-import { HongTextOverflow, type HongTextOverflowEntry } from '../../rule/HongTextOverflow';
-import { HongTextLineBreak, type HongTextLineBreakEntry } from '../../rule/HongTextLineBreak';
-import { HongTypo, type HongTypoEntry, hongTypoSize, hongTypoLineHeight, isHongTypoBold } from '../../rule/typo/HongTypo';
+import { defaultHongBorderInfo } from '../../rule/HongBorderInfo';
+import { HongLayoutParam } from '../../rule/HongLayoutParam';
+import { defaultHongShadowInfo } from '../../rule/HongShadowInfo';
+import { defaultHongSpacingInfo } from '../../rule/HongSpacingInfo';
+import {
+  HongTextAlign,
+  type HongTextAlignEntry,
+} from '../../rule/HongTextAlign';
+import {
+  HongTextLineBreak,
+  type HongTextLineBreakEntry,
+} from '../../rule/HongTextLineBreak';
+import {
+  HongTextOverflow,
+  type HongTextOverflowEntry,
+} from '../../rule/HongTextOverflow';
+import {
+  HongWidgetType,
+  type HongWidgetTypeEntry,
+} from '../../rule/HongWidgetType';
+import { defaultHongRadiusInfo } from '../../rule/radius/HongRadiusInfo';
 import { HongFont, type HongFontEntry } from '../../rule/typo/HongFont';
+import {
+  HongTypo,
+  type HongTypoEntry,
+  hongTypoLineHeight,
+  hongTypoSize,
+} from '../../rule/typo/HongTypo';
 import type { HongTextBuilder } from './HongTextBuilder';
 
 export class HongTextOption implements HongWidgetCommonOption {
@@ -56,7 +73,8 @@ export class HongTextOption implements HongWidgetCommonOption {
   }
 
   get fontWeight(): HongFontEntry {
-    return this.fontType ?? HongTextOption.DEFAULT_TYPOGRAPHY.styleName.endsWith('b')
+    return this.fontType ??
+      HongTextOption.DEFAULT_TYPOGRAPHY.styleName.endsWith('b')
       ? HongFont.PRETENDARD_700
       : HongFont.PRETENDARD_400;
   }

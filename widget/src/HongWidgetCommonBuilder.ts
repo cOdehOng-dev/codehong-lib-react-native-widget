@@ -4,30 +4,30 @@ import type { HongColorEntry } from './rule/color/HongColor';
 
 export abstract class HongWidgetCommonBuilder<
   T extends HongWidgetCommonOption,
-  S extends HongWidgetCommonBuilder<T, S>
+  S extends HongWidgetCommonBuilder<T, S>,
 > {
   abstract readonly option: T;
 
-  protected abstract self(): S;
+  protected abstract builder(): S;
 
   width(width: number | null | undefined): S {
     if (width != null) this.option.width = width;
-    return this.self();
+    return this.builder();
   }
 
   height(height: number | null | undefined): S {
     if (height != null) this.option.height = height;
-    return this.self();
+    return this.builder();
   }
 
   margin(margin: HongSpacingInfo): S {
     this.option.margin = margin;
-    return this.self();
+    return this.builder();
   }
 
   padding(padding: HongSpacingInfo): S {
     this.option.padding = padding;
-    return this.self();
+    return this.builder();
   }
 
   backgroundColor(color: HongColorEntry): S;
@@ -35,14 +35,12 @@ export abstract class HongWidgetCommonBuilder<
   backgroundColor(colorOrHex: HongColorEntry | string): S {
     this.option.backgroundColorHex =
       typeof colorOrHex === 'string' ? colorOrHex : colorOrHex.hex;
-    return this.self();
+    return this.builder();
   }
 
   onClick(onClick: ((option: T) => void) | null | undefined): S {
-    this.option.click = onClick
-      ? (opt) => onClick(opt as T)
-      : null;
-    return this.self();
+    this.option.click = onClick ? opt => onClick(opt as T) : null;
+    return this.builder();
   }
 
   applyOption(): T {

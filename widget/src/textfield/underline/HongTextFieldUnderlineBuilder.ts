@@ -7,10 +7,14 @@ import type { HongSpacingInfo } from '../../rule/HongSpacingInfo';
 import type { HongKeyboardTypeEntry } from '../../rule/keyboard/HongKeyboardType';
 import type { HongKeyboardActionTypeEntry } from '../../rule/keyboard/HongKeyboardActionType';
 
-export class HongTextFieldUnderlineBuilder extends HongWidgetCommonBuilder<HongTextFieldUnderlineOption, HongTextFieldUnderlineBuilder> {
-  readonly option: HongTextFieldUnderlineOption = new HongTextFieldUnderlineOption();
+export class HongTextFieldUnderlineBuilder extends HongWidgetCommonBuilder<
+  HongTextFieldUnderlineOption,
+  HongTextFieldUnderlineBuilder
+> {
+  readonly option: HongTextFieldUnderlineOption =
+    new HongTextFieldUnderlineOption();
 
-  protected self(): HongTextFieldUnderlineBuilder {
+  protected builder(): HongTextFieldUnderlineBuilder {
     return this;
   }
 
@@ -29,7 +33,9 @@ export class HongTextFieldUnderlineBuilder extends HongWidgetCommonBuilder<HongT
     return this;
   }
 
-  placeholder(placeholder: string | null | undefined): HongTextFieldUnderlineBuilder {
+  placeholder(
+    placeholder: string | null | undefined,
+  ): HongTextFieldUnderlineBuilder {
     this.option.placeholder = placeholder ?? null;
     return this;
   }
@@ -39,12 +45,17 @@ export class HongTextFieldUnderlineBuilder extends HongWidgetCommonBuilder<HongT
     return this;
   }
 
-  placeholderColor(color: HongColorEntry | string): HongTextFieldUnderlineBuilder {
-    this.option.placeholderColorHex = typeof color === 'string' ? color : color.hex;
+  placeholderColor(
+    color: HongColorEntry | string,
+  ): HongTextFieldUnderlineBuilder {
+    this.option.placeholderColorHex =
+      typeof color === 'string' ? color : color.hex;
     return this;
   }
 
-  clearIcon(icon: ImageSourcePropType | null | undefined): HongTextFieldUnderlineBuilder {
+  clearIcon(
+    icon: ImageSourcePropType | null | undefined,
+  ): HongTextFieldUnderlineBuilder {
     this.option.clearIcon = icon ?? null;
     return this;
   }
@@ -74,18 +85,26 @@ export class HongTextFieldUnderlineBuilder extends HongWidgetCommonBuilder<HongT
     return this;
   }
 
-  keyboardActionType(action: HongKeyboardActionTypeEntry): HongTextFieldUnderlineBuilder {
+  keyboardActionType(
+    action: HongKeyboardActionTypeEntry,
+  ): HongTextFieldUnderlineBuilder {
     this.option.keyboardActionType = action;
     return this;
   }
 
-  underlineFocusColor(color: HongColorEntry | string): HongTextFieldUnderlineBuilder {
-    this.option.underlineFocusColorHex = typeof color === 'string' ? color : color.hex;
+  underlineFocusColor(
+    color: HongColorEntry | string,
+  ): HongTextFieldUnderlineBuilder {
+    this.option.underlineFocusColorHex =
+      typeof color === 'string' ? color : color.hex;
     return this;
   }
 
-  underlineOutFocusColor(color: HongColorEntry | string): HongTextFieldUnderlineBuilder {
-    this.option.underlineOutFocusColorHex = typeof color === 'string' ? color : color.hex;
+  underlineOutFocusColor(
+    color: HongColorEntry | string,
+  ): HongTextFieldUnderlineBuilder {
+    this.option.underlineOutFocusColorHex =
+      typeof color === 'string' ? color : color.hex;
     return this;
   }
 
@@ -94,12 +113,16 @@ export class HongTextFieldUnderlineBuilder extends HongWidgetCommonBuilder<HongT
     return this;
   }
 
-  onTextChanged(onChange: (text: string) => void): HongTextFieldUnderlineBuilder {
+  onTextChanged(
+    onChange: (text: string) => void,
+  ): HongTextFieldUnderlineBuilder {
     this.option.onTextChanged = onChange;
     return this;
   }
 
-  copy(inject: HongTextFieldUnderlineOption | null | undefined): HongTextFieldUnderlineBuilder {
+  copy(
+    inject: HongTextFieldUnderlineOption | null | undefined,
+  ): HongTextFieldUnderlineBuilder {
     if (!inject) return new HongTextFieldUnderlineBuilder();
     return new HongTextFieldUnderlineBuilder()
       .width(inject.width)

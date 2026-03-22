@@ -4,14 +4,19 @@ import { HongImageBlurOption } from './HongImageBlurOption';
 import type { HongScaleTypeEntry } from '../../rule/HongScaleType';
 import type { HongRadiusInfo } from '../../rule/radius/HongRadiusInfo';
 
-export class HongImageBlurBuilder extends HongWidgetCommonBuilder<HongImageBlurOption, HongImageBlurBuilder> {
+export class HongImageBlurBuilder extends HongWidgetCommonBuilder<
+  HongImageBlurOption,
+  HongImageBlurBuilder
+> {
   readonly option: HongImageBlurOption = new HongImageBlurOption();
 
-  protected self(): HongImageBlurBuilder {
+  protected builder(): HongImageBlurBuilder {
     return this;
   }
 
-  imageSource(source: ImageSourcePropType | string | null | undefined): HongImageBlurBuilder {
+  imageSource(
+    source: ImageSourcePropType | string | null | undefined,
+  ): HongImageBlurBuilder {
     this.option.imageSource = source ?? null;
     return this;
   }
