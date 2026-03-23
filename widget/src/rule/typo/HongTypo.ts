@@ -1,6 +1,6 @@
 import { HongFont, type HongFontEntry } from './HongFont';
 
-export type HongTypoEntry = {
+export type HongTypoProps = {
   styleName: string;
   code: number;
 };
@@ -49,7 +49,7 @@ export const HongTypo = {
 
 export type HongTypoKey = keyof typeof HongTypo;
 
-export function hongTypoSize(typo: HongTypoEntry): number {
+export function hongTypoSize(typo: HongTypoProps): number {
   switch (typo.styleName) {
     case 'title_36_b':
     case 'title_36':
@@ -108,7 +108,7 @@ export function hongTypoSize(typo: HongTypoEntry): number {
   }
 }
 
-export function hongTypoLineHeight(typo: HongTypoEntry): number {
+export function hongTypoLineHeight(typo: HongTypoProps): number {
   switch (typo.styleName) {
     case 'title_36_b':
     case 'title_36':
@@ -169,14 +169,14 @@ export function hongTypoLineHeight(typo: HongTypoEntry): number {
   }
 }
 
-export function isHongTypoBold(typo: HongTypoEntry): boolean {
+export function isHongTypoBold(typo: HongTypoProps): boolean {
   return typo.styleName.endsWith('b');
 }
 
 export function hongTypoFontType(
-  typo: HongTypoEntry | null | undefined,
+  typo: HongTypoProps | null | undefined,
 ): HongFontEntry {
-  return isHongTypoBold(typo as HongTypoEntry)
+  return isHongTypoBold(typo as HongTypoProps)
     ? HongFont.PRETENDARD_700
     : HongFont.PRETENDARD_400;
 }

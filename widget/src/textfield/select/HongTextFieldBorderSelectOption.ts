@@ -1,14 +1,23 @@
 import type { HongWidgetCommonOption } from '../../HongWidgetCommonOption';
-import { HongWidgetType, type HongWidgetTypeEntry } from '../../rule/HongWidgetType';
+import {
+  HongWidgetType,
+  type HongWidgetTypeEntry,
+} from '../../rule/HongWidgetType';
 import { HongLayoutParam } from '../../rule/HongLayoutParam';
 import { defaultHongSpacingInfo } from '../../rule/HongSpacingInfo';
 import { defaultHongRadiusInfo } from '../../rule/radius/HongRadiusInfo';
 import type { HongRadiusInfo } from '../../rule/radius/HongRadiusInfo';
 import { defaultHongShadowInfo } from '../../rule/HongShadowInfo';
-import { defaultHongBorderInfo, type HongBorderInfo } from '../../rule/HongBorderInfo';
+import {
+  defaultHongBorderInfo,
+  type HongBorderInfo,
+} from '../../rule/HongBorderInfo';
 import { HongColor } from '../../rule/color/HongColor';
-import { HongTypo, type HongTypoEntry } from '../../rule/typo/HongTypo';
-import { HongInputState, type HongInputStateEntry } from '../../rule/HongInputState';
+import { HongTypo, type HongTypoProps } from '../../rule/typo/HongTypo';
+import {
+  HongInputState,
+  type HongInputStateEntry,
+} from '../../rule/HongInputState';
 
 export class HongTextFieldBorderSelectOption implements HongWidgetCommonOption {
   type: HongWidgetTypeEntry = HongWidgetType.TEXT_FIELD_BORDER_SELECT;
@@ -25,7 +34,12 @@ export class HongTextFieldBorderSelectOption implements HongWidgetCommonOption {
   border: HongBorderInfo = defaultHongBorderInfo();
   backgroundColorHex: string = HongColor.TRANSPARENT.hex;
 
-  inputRadius: HongRadiusInfo = { topLeft: 12, topRight: 12, bottomLeft: 12, bottomRight: 12 };
+  inputRadius: HongRadiusInfo = {
+    topLeft: 12,
+    topRight: 12,
+    bottomLeft: 12,
+    bottomRight: 12,
+  };
 
   enableBorderColorHex: string = HongColor.GRAY_20.hex;
   focusedBorderColorHex: string = HongColor.BLACK_80.hex;
@@ -34,17 +48,17 @@ export class HongTextFieldBorderSelectOption implements HongWidgetCommonOption {
 
   label: string = '';
   labelColorHex: string = HongColor.BLACK_100.hex;
-  labelTypo: HongTypoEntry = HongTypo.CONTENTS_12;
+  labelTypo: HongTypoProps = HongTypo.CONTENTS_12;
 
   initialInput: string = '';
   inputTextColorHex: string = HongColor.BLACK_100.hex;
 
   placeholder: string = '';
   placeholderColorHex: string = HongColor.GRAY_50.hex;
-  placeholderTypo: HongTypoEntry = HongTypo.BODY_16;
+  placeholderTypo: HongTypoProps = HongTypo.BODY_16;
 
   helperText: string = '';
-  helperTextTypo: HongTypoEntry = HongTypo.CONTENTS_10;
+  helperTextTypo: HongTypoProps = HongTypo.CONTENTS_10;
 
   isRequired: boolean = false;
 

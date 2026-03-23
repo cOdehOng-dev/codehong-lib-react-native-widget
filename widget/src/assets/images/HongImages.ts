@@ -16,6 +16,7 @@ export const HongImages: Record<string, ImageSourcePropType> = {
   honglib_ic_indicator: require('./honglib_ic_indicator.png'),
   honglib_ic_minus: require('./honglib_ic_minus.png'),
   honglib_ic_plus: require('./honglib_ic_plus.png'),
+  honglib_ic_34_arrow_left: require('./honglib_ic_34_arrow_left.png'),
 } as const;
 
 export type HongImageKey = keyof typeof HongImages;

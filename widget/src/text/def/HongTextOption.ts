@@ -24,7 +24,7 @@ import { defaultHongRadiusInfo } from '../../rule/radius/HongRadiusInfo';
 import { HongFont, type HongFontEntry } from '../../rule/typo/HongFont';
 import {
   HongTypo,
-  type HongTypoEntry,
+  type HongTypoProps,
   hongTypoLineHeight,
   hongTypoSize,
 } from '../../rule/typo/HongTypo';
@@ -51,7 +51,7 @@ export class HongTextOption implements HongWidgetCommonOption {
 
   text: string | null = null;
   colorHex: string | null = null;
-  typography: HongTypoEntry | null = null;
+  typography: HongTypoProps | null = null;
   textSize: number | null = null;
   fontType: HongFontEntry | null = null;
 
@@ -85,10 +85,10 @@ export class HongTextOption implements HongWidgetCommonOption {
 
   hasMargin(): boolean {
     return (
-      this.margin.left > 0 ||
-      this.margin.top > 0 ||
-      this.margin.right > 0 ||
-      this.margin.bottom > 0
+      (this.margin.left ?? 0) > 0 ||
+      (this.margin.top ?? 0) > 0 ||
+      (this.margin.right ?? 0) > 0 ||
+      (this.margin.bottom ?? 0) > 0
     );
   }
 }

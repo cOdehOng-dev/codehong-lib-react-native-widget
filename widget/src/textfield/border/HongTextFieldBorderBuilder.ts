@@ -1,7 +1,7 @@
 import { HongWidgetCommonBuilder } from '../../HongWidgetCommonBuilder';
 import { HongTextFieldBorderOption } from './HongTextFieldBorderOption';
 import type { HongColorEntry } from '../../rule/color/HongColor';
-import type { HongTypoEntry } from '../../rule/typo/HongTypo';
+import type { HongTypoProps } from '../../rule/typo/HongTypo';
 import type { HongRadiusInfo } from '../../rule/radius/HongRadiusInfo';
 import type { HongInputStateEntry } from '../../rule/HongInputState';
 
@@ -54,7 +54,7 @@ export class HongTextFieldBorderBuilder extends HongWidgetCommonBuilder<
     return this;
   }
 
-  labelTypo(typo: HongTypoEntry): HongTextFieldBorderBuilder {
+  labelTypo(typo: HongTypoProps): HongTextFieldBorderBuilder {
     this.option.labelTypo = typo;
     return this;
   }
@@ -81,7 +81,7 @@ export class HongTextFieldBorderBuilder extends HongWidgetCommonBuilder<
     return this;
   }
 
-  placeholderTypo(typo: HongTypoEntry): HongTextFieldBorderBuilder {
+  placeholderTypo(typo: HongTypoProps): HongTextFieldBorderBuilder {
     this.option.placeholderTypo = typo;
     return this;
   }
@@ -91,7 +91,7 @@ export class HongTextFieldBorderBuilder extends HongWidgetCommonBuilder<
     return this;
   }
 
-  helperTextTypo(typo: HongTypoEntry): HongTextFieldBorderBuilder {
+  helperTextTypo(typo: HongTypoProps): HongTextFieldBorderBuilder {
     this.option.helperTextTypo = typo;
     return this;
   }
@@ -111,7 +111,7 @@ export class HongTextFieldBorderBuilder extends HongWidgetCommonBuilder<
     return this;
   }
 
-  suffixTypo(typo: HongTypoEntry): HongTextFieldBorderBuilder {
+  suffixTypo(typo: HongTypoProps): HongTextFieldBorderBuilder {
     this.option.suffixTypo = typo;
     return this;
   }

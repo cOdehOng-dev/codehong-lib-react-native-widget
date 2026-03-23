@@ -1,15 +1,27 @@
 import type { ImageSourcePropType } from 'react-native';
 import type { HongWidgetCommonOption } from '../../HongWidgetCommonOption';
-import { HongWidgetType, type HongWidgetTypeEntry } from '../../rule/HongWidgetType';
+import {
+  HongWidgetType,
+  type HongWidgetTypeEntry,
+} from '../../rule/HongWidgetType';
 import { HongLayoutParam } from '../../rule/HongLayoutParam';
 import { defaultHongSpacingInfo } from '../../rule/HongSpacingInfo';
 import { defaultHongRadiusInfo } from '../../rule/radius/HongRadiusInfo';
 import { defaultHongShadowInfo } from '../../rule/HongShadowInfo';
-import { defaultHongBorderInfo, type HongBorderInfo } from '../../rule/HongBorderInfo';
+import {
+  defaultHongBorderInfo,
+  type HongBorderInfo,
+} from '../../rule/HongBorderInfo';
 import { HongColor } from '../../rule/color/HongColor';
-import { HongTypo, type HongTypoEntry } from '../../rule/typo/HongTypo';
-import { HongKeyboardType, type HongKeyboardTypeEntry } from '../../rule/keyboard/HongKeyboardType';
-import { HongKeyboardActionType, type HongKeyboardActionTypeEntry } from '../../rule/keyboard/HongKeyboardActionType';
+import { HongTypo, type HongTypoProps } from '../../rule/typo/HongTypo';
+import {
+  HongKeyboardType,
+  type HongKeyboardTypeEntry,
+} from '../../rule/keyboard/HongKeyboardType';
+import {
+  HongKeyboardActionType,
+  type HongKeyboardActionTypeEntry,
+} from '../../rule/keyboard/HongKeyboardActionType';
 
 export class HongTextFieldOption implements HongWidgetCommonOption {
   static readonly DEFAULT_DELAY_INPUT_CALLBACK = 0;
@@ -30,12 +42,12 @@ export class HongTextFieldOption implements HongWidgetCommonOption {
   backgroundColorHex: string = HongColor.BLACK_05.hex;
 
   placeholder: string | null = null;
-  placeholderTypo: HongTypoEntry = HongTypo.BODY_16;
+  placeholderTypo: HongTypoProps = HongTypo.BODY_16;
   placeholderColorHex: string = HongColor.BLACK_30.hex;
   placeholderPadding = defaultHongSpacingInfo();
 
   input: string | null = null;
-  inputTypo: HongTypoEntry = HongTypo.BODY_16_B;
+  inputTypo: HongTypoProps = HongTypo.BODY_16_B;
   inputColorHex: string = HongColor.BLACK_100.hex;
 
   /** 지우기 버튼 아이콘 (null이면 미표시) */

@@ -1,7 +1,7 @@
 import { HongWidgetCommonBuilder } from '../../HongWidgetCommonBuilder';
 import { HongTextUpDownOption } from './HongTextUpDownOption';
 import type { HongColorEntry } from '../../rule/color/HongColor';
-import type { HongTypoEntry } from '../../rule/typo/HongTypo';
+import type { HongTypoProps } from '../../rule/typo/HongTypo';
 
 export class HongTextUpDownBuilder extends HongWidgetCommonBuilder<
   HongTextUpDownOption,
@@ -23,7 +23,7 @@ export class HongTextUpDownBuilder extends HongWidgetCommonBuilder<
     return this;
   }
 
-  displayTypo(typo: HongTypoEntry): HongTextUpDownBuilder {
+  displayTypo(typo: HongTypoProps): HongTextUpDownBuilder {
     this.option.displayTypo = typo;
     return this;
   }

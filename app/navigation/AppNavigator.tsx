@@ -17,6 +17,7 @@ import { TextFieldNumberSampleScreen } from '../screens/textfield/TextFieldNumbe
 import { TextFieldTimerSampleScreen } from '../screens/textfield/TextFieldTimerSampleScreen';
 import { TextFieldUnderlineSampleScreen } from '../screens/textfield/TextFieldUnderlineSampleScreen';
 import { TextFieldBorderSelectSampleScreen } from '../screens/textfield/TextFieldBorderSelectSampleScreen';
+import { ButtonTextSampleScreen } from 'app/screens/button/ButtonTextSampleScreen';
 
 const Stack = createNativeStackNavigator<RootStackParamList>();
 
@@ -26,19 +27,56 @@ export function AppNavigator() {
       <Stack.Navigator screenOptions={{ headerShown: false }}>
         <Stack.Screen name="Main" component={MainScreen} />
         <Stack.Screen name="TextSample" component={TextSampleScreen} />
-        <Stack.Screen name="TextBadgeSample" component={TextBadgeSampleScreen} />
-        <Stack.Screen name="TextUpDownSample" component={TextUpDownSampleScreen} />
-        <Stack.Screen name="TextCheckSample" component={TextCheckSampleScreen} />
-        <Stack.Screen name="TextCountSample" component={TextCountSampleScreen} />
+        <Stack.Screen
+          name="TextBadgeSample"
+          component={TextBadgeSampleScreen}
+        />
+        <Stack.Screen
+          name="TextUpDownSample"
+          component={TextUpDownSampleScreen}
+        />
+        <Stack.Screen
+          name="TextCheckSample"
+          component={TextCheckSampleScreen}
+        />
+        <Stack.Screen
+          name="TextCountSample"
+          component={TextCountSampleScreen}
+        />
         <Stack.Screen name="TextUnitSample" component={TextUnitSampleScreen} />
         <Stack.Screen name="ImageSample" component={ImageSampleScreen} />
-        <Stack.Screen name="ImageBlurSample" component={ImageBlurSampleScreen} />
-        <Stack.Screen name="TextFieldSample" component={TextFieldSampleScreen} />
-        <Stack.Screen name="TextFieldBorderSample" component={TextFieldBorderSampleScreen} />
-        <Stack.Screen name="TextFieldNumberSample" component={TextFieldNumberSampleScreen} />
-        <Stack.Screen name="TextFieldTimerSample" component={TextFieldTimerSampleScreen} />
-        <Stack.Screen name="TextFieldUnderlineSample" component={TextFieldUnderlineSampleScreen} />
-        <Stack.Screen name="TextFieldBorderSelectSample" component={TextFieldBorderSelectSampleScreen} />
+        <Stack.Screen
+          name="ImageBlurSample"
+          component={ImageBlurSampleScreen}
+        />
+        <Stack.Screen
+          name="TextFieldSample"
+          component={TextFieldSampleScreen}
+        />
+        <Stack.Screen
+          name="TextFieldBorderSample"
+          component={TextFieldBorderSampleScreen}
+        />
+        <Stack.Screen
+          name="TextFieldNumberSample"
+          component={TextFieldNumberSampleScreen}
+        />
+        <Stack.Screen
+          name="TextFieldTimerSample"
+          component={TextFieldTimerSampleScreen}
+        />
+        <Stack.Screen
+          name="TextFieldUnderlineSample"
+          component={TextFieldUnderlineSampleScreen}
+        />
+        <Stack.Screen
+          name="TextFieldBorderSelectSample"
+          component={TextFieldBorderSelectSampleScreen}
+        />
+        <Stack.Screen
+          name="ButtonTextSample"
+          component={ButtonTextSampleScreen}
+        />
       </Stack.Navigator>
     </NavigationContainer>
   );

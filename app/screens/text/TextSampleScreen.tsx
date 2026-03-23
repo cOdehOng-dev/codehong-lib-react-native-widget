@@ -6,10 +6,12 @@ import {
   TouchableOpacity,
   Platform,
 } from 'react-native';
-import { SafeAreaView, useSafeAreaInsets } from 'react-native-safe-area-context';
+import {
+  SafeAreaView,
+  useSafeAreaInsets,
+} from 'react-native-safe-area-context';
 
-const Container = Platform.OS === 'android' ? SafeAreaView : View;
-import type { TextSampleScreenProps } from '../../navigation/types';
+import type { RootStackParamList } from '../../navigation/types';
 import {
   HongText,
   HongTextBuilder,
@@ -21,6 +23,11 @@ import {
   HongLayoutParam,
   hongColorHexToRNColor,
 } from '../../../widget';
+import { NativeStackScreenProps } from 'node_modules/@react-navigation/native-stack/lib/typescript/src/types';
+import CommonContainer from '../common/CommonContainer';
+
+const Container = Platform.OS === 'android' ? SafeAreaView : View;
+type Props = NativeStackScreenProps<RootStackParamList, 'TextSample'>;
 
 // ─── 샘플 옵션 (SampleTextActivity.kt 동일 구성) ──────────────────────────
 
@@ -36,7 +43,7 @@ const option1 = new HongTextBuilder()
 const option2 = new HongTextBuilder()
   .width(HongLayoutParam.MATCH_PARENT.value)
   .text(
-    '김민재의 부상 투혼은 이어졌다. 목이 아프고, 기침이 심한 상태에서 경기에 출전했다. 허리 통증까지 겪고 있는 것으로 알려졌다. 고 휴식이 필요한 상황인 것으로 알려졌다.'
+    '김민재의 부상 투혼은 이어졌다. 목이 아프고, 기침이 심한 상태에서 경기에 출전했다. 허리 통증까지 겪고 있는 것으로 알려졌다. 고 휴식이 필요한 상황인 것으로 알려졌다.',
   )
   .typography(HongTypo.BODY_16_B)
   .isEnableCancelLine(true)
@@ -95,7 +102,9 @@ const option7 = (() => {
 })();
 
 const option8 = new HongTextBuilder()
-  .text('최대 2줄까지만 표시되는 긴 텍스트입니다. 이 텍스트는 두 줄을 초과하는 경우 말줄임표(...)로 잘립니다. 계속해서 내용이 이어집니다.')
+  .text(
+    '최대 2줄까지만 표시되는 긴 텍스트입니다. 이 텍스트는 두 줄을 초과하는 경우 말줄임표(...)로 잘립니다. 계속해서 내용이 이어집니다.',
+  )
   .typography(HongTypo.BODY_16)
   .maxLines(2)
   .margin(margin10)
@@ -127,60 +136,36 @@ const sampleLabels = [
 
 // ─── 컴포넌트 ──────────────────────────────────────────────────────────────
 
-export function TextSampleScreen({ navigation }: TextSampleScreenProps) {
+export function TextSampleScreen({ navigation }: Props) {
   const insets = useSafeAreaInsets();
   const topPad = Platform.OS === 'ios' ? insets.top : 0;
   const botPad = Platform.OS === 'ios' ? insets.bottom : 0;
 
   return (
-    <Container style={styles.root}>
-      {/* Header */}
-      <View style={[styles.header, { paddingTop: topPad, height: 50 + topPad }]}>
-        <TouchableOpacity style={styles.backButton} onPress={() => navigation.goBack()}>
-          <HongText
-            option={new HongTextBuilder()
-              .text('←')
-              .fontType(HongFont.PRETENDARD_700)
-              .size(20)
-              .color('#FFFFFF')
-              .applyOption()}
-          />
-        </TouchableOpacity>
-        <HongText
-          option={new HongTextBuilder()
-            .text('Text 샘플')
-            .fontType(HongFont.PRETENDARD_700)
-            .size(18)
-            .color('#FFFFFF')
-            .applyOption()}
-        />
-        <View style={styles.backButton} />
-      </View>
-
-      {/* 샘플 목록 */}
-      <ScrollView contentContainerStyle={[styles.content, { paddingBottom: 40 + botPad }]}>
-        {optionList.map((option, index) => (
-          <View key={index} style={styles.sampleBlock}>
-            {/* 섹션 라벨 */}
-            <View style={styles.labelRow}>
-              <HongText
-                option={new HongTextBuilder()
-                  .text(sampleLabels[index] ?? `Sample ${index + 1}`)
-                  .typography(HongTypo.CONTENTS_12_B)
-                  .colorEntry(HongColor.GRAY_50)
-                  .applyOption()}
-              />
-            </View>
-            {/* 실제 샘플 */}
-            <View style={styles.sampleContainer}>
-              <HongText option={option} />
-            </View>
-            {/* 구분선 */}
-            <View style={styles.divider} />
+    <CommonContainer
+      title="Text 샘플"
+      onBack={() => navigation.goBack()}
+      content={optionList.map((option, index) => (
+        <View key={index} style={styles.sampleBlock}>
+          {/* 섹션 라벨 */}
+          <View style={styles.labelRow}>
+            <HongText
+              option={new HongTextBuilder()
+                .text(sampleLabels[index] ?? `Sample ${index + 1}`)
+                .typography(HongTypo.CONTENTS_12_B)
+                .colorEntry(HongColor.GRAY_50)
+                .applyOption()}
+            />
           </View>
-        ))}
-      </ScrollView>
-    </Container>
+          {/* 실제 샘플 */}
+          <View style={styles.sampleContainer}>
+            <HongText option={option} />
+          </View>
+          {/* 구분선 */}
+          <View style={styles.divider} />
+        </View>
+      ))}
+    />
   );
 }
 

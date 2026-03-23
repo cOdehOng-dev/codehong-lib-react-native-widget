@@ -1,14 +1,26 @@
 import type { ImageSourcePropType } from 'react-native';
 import type { HongWidgetCommonOption } from '../../HongWidgetCommonOption';
-import { HongWidgetType, type HongWidgetTypeEntry } from '../../rule/HongWidgetType';
+import {
+  HongWidgetType,
+  type HongWidgetTypeEntry,
+} from '../../rule/HongWidgetType';
 import { HongLayoutParam } from '../../rule/HongLayoutParam';
-import { defaultHongSpacingInfo, type HongSpacingInfo } from '../../rule/HongSpacingInfo';
+import {
+  defaultHongSpacingInfo,
+  type HongSpacingInfo,
+} from '../../rule/HongSpacingInfo';
 import { defaultHongRadiusInfo } from '../../rule/radius/HongRadiusInfo';
 import { defaultHongShadowInfo } from '../../rule/HongShadowInfo';
-import { defaultHongBorderInfo, type HongBorderInfo } from '../../rule/HongBorderInfo';
+import {
+  defaultHongBorderInfo,
+  type HongBorderInfo,
+} from '../../rule/HongBorderInfo';
 import { HongColor } from '../../rule/color/HongColor';
-import { HongTypo, type HongTypoEntry } from '../../rule/typo/HongTypo';
-import { HongKeyboardActionType, type HongKeyboardActionTypeEntry } from '../../rule/keyboard/HongKeyboardActionType';
+import { HongTypo, type HongTypoProps } from '../../rule/typo/HongTypo';
+import {
+  HongKeyboardActionType,
+  type HongKeyboardActionTypeEntry,
+} from '../../rule/keyboard/HongKeyboardActionType';
 
 export class HongTextFieldNumberOption implements HongWidgetCommonOption {
   type: HongWidgetTypeEntry = HongWidgetType.TEXT_FIELD_NUMBER;
@@ -26,11 +38,11 @@ export class HongTextFieldNumberOption implements HongWidgetCommonOption {
   backgroundColorHex: string = HongColor.WHITE_100.hex;
 
   placeholder: string | null = null;
-  placeholderTypo: HongTypoEntry = HongTypo.BODY_16;
+  placeholderTypo: HongTypoProps = HongTypo.BODY_16;
   placeholderColorHex: string = HongColor.BLACK_30.hex;
 
   input: string | null = null;
-  inputTypo: HongTypoEntry = HongTypo.BODY_16_B;
+  inputTypo: HongTypoProps = HongTypo.BODY_16_B;
   inputColorHex: string = HongColor.BLACK_100.hex;
 
   clearIcon: ImageSourcePropType | null = null;

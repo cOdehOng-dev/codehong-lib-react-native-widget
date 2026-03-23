@@ -1,21 +1,25 @@
 import React, { useState } from 'react';
 import { Image, View, TouchableOpacity } from 'react-native';
-import type { ImageSourcePropType, ViewStyle } from 'react-native';
+import type { ImageSourcePropType, ImageStyle, ViewStyle } from 'react-native';
 import type { HongImageOption } from './HongImageOption';
+import { HongImages } from '../../assets/images/HongImages';
 import { hongColorHexToRNColor } from '../../rule/color/HongColor';
 import { hongScaleTypeToResizeMode } from '../../rule/HongScaleType';
 import { hongRadiusToStyle } from '../../rule/radius/HongRadiusInfo';
 import { layoutParamToStyle, isMatchParent } from '../../rule/HongLayoutParam';
 
-interface HongImageProps {
+type HongImageProps = {
   option: HongImageOption;
-}
+};
 
 function resolveSource(
-  source: ImageSourcePropType | string | null | undefined
+  source: ImageSourcePropType | string | null | undefined,
 ): ImageSourcePropType | null {
   if (source == null) return null;
-  if (typeof source === 'string') return { uri: source };
+  if (typeof source === 'string') {
+    if (source in HongImages) return HongImages[source];
+    return { uri: source };
+  }
   return source;
 }
 
@@ -26,10 +30,12 @@ function resolveSource(
  * HongWidgetContainer 대신 직접 레이아웃을 구성합니다.
  * (컨테이너의 alignItems/justifyContent가 이미지 100% 레이아웃과 충돌하기 때문)
  */
-export function HongImage({ option }: HongImageProps): React.ReactElement | null {
-  if (!option.isValidComponent) return null;
-
+export function HongImage({
+  option,
+}: HongImageProps): React.ReactElement | null {
   const [hasError, setHasError] = useState(false);
+
+  if (!option.isValidComponent) return null;
 
   const resizeMode = hongScaleTypeToResizeMode(option.scaleType);
   const radiusStyle = hongRadiusToStyle(option.radius, option.useShapeCircle);
@@ -66,15 +72,16 @@ export function HongImage({ option }: HongImageProps): React.ReactElement | null
     paddingRight: option.padding.right,
   };
 
-  const imageStyle: ViewStyle = {
+  const imageStyle: ImageStyle = {
     width: '100%',
     height: '100%',
     ...(tintColor ? { tintColor } : {}),
   };
 
-  const mainSource = hasError && option.error
-    ? resolveSource(option.error)
-    : resolveSource(option.imageSource);
+  const mainSource =
+    hasError && option.error
+      ? resolveSource(option.error)
+      : resolveSource(option.imageSource);
 
   const placeholderSource = resolveSource(option.placeholder);
   const displaySource = mainSource ?? placeholderSource;
@@ -86,7 +93,7 @@ export function HongImage({ option }: HongImageProps): React.ReactElement | null
       <View style={innerStyle}>
         <Image
           source={displaySource}
-          style={imageStyle as any}
+          style={imageStyle}
           resizeMode={resizeMode}
           onLoadStart={() => option.onLoading?.()}
           onLoad={() => option.onSuccess?.()}
@@ -101,7 +108,10 @@ export function HongImage({ option }: HongImageProps): React.ReactElement | null
 
   if (option.click) {
     return (
-      <TouchableOpacity onPress={() => option.click?.(option)} activeOpacity={0.7}>
+      <TouchableOpacity
+        onPress={() => option.click?.(option)}
+        activeOpacity={0.7}
+      >
         {imageElement}
       </TouchableOpacity>
     );

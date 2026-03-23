@@ -1,12 +1,18 @@
 import type { HongWidgetCommonOption } from '../../HongWidgetCommonOption';
-import { HongWidgetType, type HongWidgetTypeEntry } from '../../rule/HongWidgetType';
+import {
+  HongWidgetType,
+  type HongWidgetTypeEntry,
+} from '../../rule/HongWidgetType';
 import { HongLayoutParam } from '../../rule/HongLayoutParam';
 import { defaultHongSpacingInfo } from '../../rule/HongSpacingInfo';
 import { defaultHongRadiusInfo } from '../../rule/radius/HongRadiusInfo';
 import { defaultHongShadowInfo } from '../../rule/HongShadowInfo';
-import { defaultHongBorderInfo, type HongBorderInfo } from '../../rule/HongBorderInfo';
+import {
+  defaultHongBorderInfo,
+  type HongBorderInfo,
+} from '../../rule/HongBorderInfo';
 import { HongColor } from '../../rule/color/HongColor';
-import { HongTypo, type HongTypoEntry } from '../../rule/typo/HongTypo';
+import { HongTypo, type HongTypoProps } from '../../rule/typo/HongTypo';
 
 export class HongTextBadgeOption implements HongWidgetCommonOption {
   type: HongWidgetTypeEntry = HongWidgetType.TEXT_BADGE;
@@ -27,5 +33,5 @@ export class HongTextBadgeOption implements HongWidgetCommonOption {
 
   text: string | null = null;
   textColorHex: string | null = null;
-  textTypography: HongTypoEntry = HongTypo.CONTENTS_12_B;
+  textTypography: HongTypoProps = HongTypo.CONTENTS_12_B;
 }

@@ -4,7 +4,7 @@ import type { HongColorEntry } from '../../rule/color/HongColor';
 import type { HongBorderInfo } from '../../rule/HongBorderInfo';
 import type { HongShadowInfo } from '../../rule/HongShadowInfo';
 import type { HongRadiusInfo } from '../../rule/radius/HongRadiusInfo';
-import type { HongTypoEntry } from '../../rule/typo/HongTypo';
+import type { HongTypoProps } from '../../rule/typo/HongTypo';
 
 export class HongTextBadgeBuilder extends HongWidgetCommonBuilder<
   HongTextBadgeOption,
@@ -44,7 +44,7 @@ export class HongTextBadgeBuilder extends HongWidgetCommonBuilder<
     return this;
   }
 
-  textTypo(typo: HongTypoEntry): HongTextBadgeBuilder {
+  textTypo(typo: HongTypoProps): HongTextBadgeBuilder {
     this.option.textTypography = typo;
     return this;
   }

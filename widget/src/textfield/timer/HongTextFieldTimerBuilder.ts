@@ -1,7 +1,7 @@
 import { HongWidgetCommonBuilder } from '../../HongWidgetCommonBuilder';
 import { HongTextFieldTimerOption } from './HongTextFieldTimerOption';
 import type { HongColorEntry } from '../../rule/color/HongColor';
-import type { HongTypoEntry } from '../../rule/typo/HongTypo';
+import type { HongTypoProps } from '../../rule/typo/HongTypo';
 
 export class HongTextFieldTimerBuilder extends HongWidgetCommonBuilder<
   HongTextFieldTimerOption,
@@ -18,7 +18,7 @@ export class HongTextFieldTimerBuilder extends HongWidgetCommonBuilder<
     return this;
   }
 
-  inputTypo(typo: HongTypoEntry): HongTextFieldTimerBuilder {
+  inputTypo(typo: HongTypoProps): HongTextFieldTimerBuilder {
     this.option.inputTypo = typo;
     return this;
   }
@@ -33,7 +33,7 @@ export class HongTextFieldTimerBuilder extends HongWidgetCommonBuilder<
     return this;
   }
 
-  placeholderTypo(typo: HongTypoEntry): HongTextFieldTimerBuilder {
+  placeholderTypo(typo: HongTypoProps): HongTextFieldTimerBuilder {
     this.option.placeholderTypo = typo;
     return this;
   }
@@ -103,7 +103,7 @@ export class HongTextFieldTimerBuilder extends HongWidgetCommonBuilder<
     return this;
   }
 
-  countDownTypo(typo: HongTypoEntry): HongTextFieldTimerBuilder {
+  countDownTypo(typo: HongTypoProps): HongTextFieldTimerBuilder {
     this.option.countDownTypo = typo;
     return this;
   }

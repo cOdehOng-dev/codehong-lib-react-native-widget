@@ -13,3 +13,4 @@ export * from './HongTextLineBreak';
 export * from './HongScaleType';
 export * from './keyboard';
 export * from './HongInputState';
+export * from './HongState';

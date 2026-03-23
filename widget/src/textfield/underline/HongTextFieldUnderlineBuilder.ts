@@ -2,7 +2,7 @@ import type { ImageSourcePropType } from 'react-native';
 import { HongWidgetCommonBuilder } from '../../HongWidgetCommonBuilder';
 import { HongTextFieldUnderlineOption } from './HongTextFieldUnderlineOption';
 import type { HongColorEntry } from '../../rule/color/HongColor';
-import type { HongTypoEntry } from '../../rule/typo/HongTypo';
+import type { HongTypoProps } from '../../rule/typo/HongTypo';
 import type { HongSpacingInfo } from '../../rule/HongSpacingInfo';
 import type { HongKeyboardTypeEntry } from '../../rule/keyboard/HongKeyboardType';
 import type { HongKeyboardActionTypeEntry } from '../../rule/keyboard/HongKeyboardActionType';
@@ -23,7 +23,7 @@ export class HongTextFieldUnderlineBuilder extends HongWidgetCommonBuilder<
     return this;
   }
 
-  inputTypo(typo: HongTypoEntry): HongTextFieldUnderlineBuilder {
+  inputTypo(typo: HongTypoProps): HongTextFieldUnderlineBuilder {
     this.option.inputTypo = typo;
     return this;
   }
@@ -40,7 +40,7 @@ export class HongTextFieldUnderlineBuilder extends HongWidgetCommonBuilder<
     return this;
   }
 
-  placeholderTypo(typo: HongTypoEntry): HongTextFieldUnderlineBuilder {
+  placeholderTypo(typo: HongTypoProps): HongTextFieldUnderlineBuilder {
     this.option.placeholderTypo = typo;
     return this;
   }

@@ -1,28 +1,25 @@
 import React from 'react';
 import {
-  View,
+  Platform,
   ScrollView,
   StyleSheet,
   TouchableOpacity,
-  Platform,
+  View,
 } from 'react-native';
-import { SafeAreaView, useSafeAreaInsets } from 'react-native-safe-area-context';
+import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
-const Container = Platform.OS === 'android' ? SafeAreaView : View;
 import type { NativeStackScreenProps } from '@react-navigation/native-stack';
-import type { RootStackParamList } from '../../navigation/types';
 import {
+  HongColor,
+  HongFont,
   HongText,
   HongTextBuilder,
   HongTextUpDown,
   HongTextUpDownBuilder,
-  HongColor,
   HongTypo,
-  HongFont,
   hongColorHexToRNColor,
 } from '../../../widget';
-
-type Props = NativeStackScreenProps<RootStackParamList, 'TextUpDownSample'>;
+import { RootContainer, type RootStackParamList } from '../../navigation/types';
 
 // ─── 샘플 옵션 ─────────────────────────────────────────────────────────────
 
@@ -68,6 +65,7 @@ const updownLabels = [
 ];
 
 // ─── 컴포넌트 ──────────────────────────────────────────────────────────────
+type Props = NativeStackScreenProps<RootStackParamList, 'TextUpDownSample'>;
 
 export function TextUpDownSampleScreen({ navigation }: Props) {
   const insets = useSafeAreaInsets();
@@ -75,10 +73,15 @@ export function TextUpDownSampleScreen({ navigation }: Props) {
   const botPad = Platform.OS === 'ios' ? insets.bottom : 0;
 
   return (
-    <Container style={styles.root}>
+    <RootContainer style={styles.root}>
       {/* Header */}
-      <View style={[styles.header, { paddingTop: topPad, height: 50 + topPad }]}>
-        <TouchableOpacity style={styles.backButton} onPress={() => navigation.goBack()}>
+      <View
+        style={[styles.header, { paddingTop: topPad, height: 50 + topPad }]}
+      >
+        <TouchableOpacity
+          style={styles.backButton}
+          onPress={() => navigation.goBack()}
+        >
           <HongText
             option={new HongTextBuilder()
               .text('←')
@@ -100,7 +103,9 @@ export function TextUpDownSampleScreen({ navigation }: Props) {
       </View>
 
       {/* 샘플 목록 */}
-      <ScrollView contentContainerStyle={[styles.content, { paddingBottom: 40 + botPad }]}>
+      <ScrollView
+        contentContainerStyle={[styles.content, { paddingBottom: 40 + botPad }]}
+      >
         {updownList.map((option, index) => (
           <View key={index} style={styles.sampleBlock}>
             <View style={styles.labelRow}>
@@ -119,7 +124,7 @@ export function TextUpDownSampleScreen({ navigation }: Props) {
           </View>
         ))}
       </ScrollView>
-    </Container>
+    </RootContainer>
   );
 }
 

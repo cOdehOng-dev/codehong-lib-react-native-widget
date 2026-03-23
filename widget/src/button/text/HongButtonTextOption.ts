@@ -1,5 +1,5 @@
-import { HongTypo, HongTypoEntry } from './../../rule/typo/HongTypo';
-import { HongWidgetCommonOption } from 'widget/src/HongWidgetCommonOption';
+import { HongTypo, HongTypoProps } from './../../rule/typo/HongTypo';
+import { HongWidgetCommonOption } from '../../HongWidgetCommonOption';
 import {
   HongWidgetTypeEntry,
   HongSpacingInfo,
@@ -13,7 +13,8 @@ import {
   defaultHongRadiusInfo,
   defaultHongBorderInfo,
   defaultHongShadowInfo,
-} from 'widget/src/rule';
+} from '../../rule';
+import { HongState } from '../../rule/HongState';
 
 export class HongButtonTextOption implements HongWidgetCommonOption {
   static readonly DEFAULT_DISABLE_BACKGROUND_COLOR = HongColor.GRAY_70;
@@ -35,6 +36,8 @@ export class HongButtonTextOption implements HongWidgetCommonOption {
   click: ((option: HongWidgetCommonOption) => void) | null = null;
 
   text: string = '';
-  textTypo: HongTypoEntry = HongTypo.BODY_16_B;
+  textTypo: HongTypoProps = HongTypo.BODY_16_B;
   textColorHex: string = HongColor.WHITE_100.hex;
+
+  state: HongState = HongState.ENABLED;
 }

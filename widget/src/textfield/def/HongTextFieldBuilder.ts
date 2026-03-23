@@ -2,7 +2,7 @@ import type { ImageSourcePropType } from 'react-native';
 import { HongWidgetCommonBuilder } from '../../HongWidgetCommonBuilder';
 import { HongTextFieldOption } from './HongTextFieldOption';
 import type { HongColorEntry } from '../../rule/color/HongColor';
-import type { HongTypoEntry } from '../../rule/typo/HongTypo';
+import type { HongTypoProps } from '../../rule/typo/HongTypo';
 import type { HongRadiusInfo } from '../../rule/radius/HongRadiusInfo';
 import type { HongBorderInfo } from '../../rule/HongBorderInfo';
 import type { HongSpacingInfo } from '../../rule/HongSpacingInfo';
@@ -42,7 +42,7 @@ export class HongTextFieldBuilder extends HongWidgetCommonBuilder<
     return this;
   }
 
-  placeholderTypo(typo: HongTypoEntry): HongTextFieldBuilder {
+  placeholderTypo(typo: HongTypoProps): HongTextFieldBuilder {
     this.option.placeholderTypo = typo;
     return this;
   }
@@ -57,7 +57,7 @@ export class HongTextFieldBuilder extends HongWidgetCommonBuilder<
     return this;
   }
 
-  inputTypo(typo: HongTypoEntry): HongTextFieldBuilder {
+  inputTypo(typo: HongTypoProps): HongTextFieldBuilder {
     this.option.inputTypo = typo;
     return this;
   }

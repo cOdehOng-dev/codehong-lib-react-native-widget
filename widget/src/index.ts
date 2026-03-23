@@ -5,4 +5,5 @@ export * from './HongWidgetContainer';
 export * from './text';
 export * from './image';
 export * from './textfield';
+export * from './button';
 export * from './assets';

@@ -5,7 +5,7 @@ import { type HongTextLineBreakEntry } from '../../rule/HongTextLineBreak';
 import { type HongTextOverflowEntry } from '../../rule/HongTextOverflow';
 import { HongFont, type HongFontEntry } from '../../rule/typo/HongFont';
 import {
-  type HongTypoEntry,
+  type HongTypoProps,
   hongTypoSize,
   isHongTypoBold,
 } from '../../rule/typo/HongTypo';
@@ -56,7 +56,7 @@ export class HongTextBuilder extends HongWidgetCommonBuilder<
     return this;
   }
 
-  typography(typography: HongTypoEntry | null | undefined): HongTextBuilder {
+  typography(typography: HongTypoProps | null | undefined): HongTextBuilder {
     this.option.typography = typography ?? null;
     if (typography) {
       this.option.textSize = hongTypoSize(typography);

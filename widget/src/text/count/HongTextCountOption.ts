@@ -1,19 +1,26 @@
 import type { HongWidgetCommonOption } from '../../HongWidgetCommonOption';
-import { HongWidgetType, type HongWidgetTypeEntry } from '../../rule/HongWidgetType';
+import {
+  HongWidgetType,
+  type HongWidgetTypeEntry,
+} from '../../rule/HongWidgetType';
 import { HongLayoutParam } from '../../rule/HongLayoutParam';
 import { defaultHongSpacingInfo } from '../../rule/HongSpacingInfo';
 import { defaultHongRadiusInfo } from '../../rule/radius/HongRadiusInfo';
 import { defaultHongShadowInfo } from '../../rule/HongShadowInfo';
-import { defaultHongBorderInfo, type HongBorderInfo } from '../../rule/HongBorderInfo';
+import {
+  defaultHongBorderInfo,
+  type HongBorderInfo,
+} from '../../rule/HongBorderInfo';
 import { HongColor } from '../../rule/color/HongColor';
-import { HongTypo, type HongTypoEntry } from '../../rule/typo/HongTypo';
+import { HongTypo, type HongTypoProps } from '../../rule/typo/HongTypo';
 
 export const HongCountType = {
   LONG: 'LONG',
   DOUBLE: 'DOUBLE',
 } as const;
 
-export type HongCountTypeEntry = (typeof HongCountType)[keyof typeof HongCountType];
+export type HongCountTypeEntry =
+  (typeof HongCountType)[keyof typeof HongCountType];
 
 export class HongTextCountOption implements HongWidgetCommonOption {
   type: HongWidgetTypeEntry = HongWidgetType.TEXT_COUNT;
@@ -34,11 +41,11 @@ export class HongTextCountOption implements HongWidgetCommonOption {
   countType: HongCountTypeEntry = HongCountType.LONG;
 
   startCount: number = 1;
-  countTypo: HongTypoEntry = HongTypo.TITLE_36_B;
+  countTypo: HongTypoProps = HongTypo.TITLE_36_B;
   countColorHex: string = HongColor.BLACK_100.hex;
 
   unitText: string = '';
-  unitTypo: HongTypoEntry = HongTypo.CONTENTS_12;
+  unitTypo: HongTypoProps = HongTypo.CONTENTS_12;
   unitColorHex: string = HongColor.BLACK_50.hex;
 
   minCount: number = 0;

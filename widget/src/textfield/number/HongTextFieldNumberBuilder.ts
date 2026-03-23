@@ -2,7 +2,7 @@ import type { ImageSourcePropType } from 'react-native';
 import { HongWidgetCommonBuilder } from '../../HongWidgetCommonBuilder';
 import { HongTextFieldNumberOption } from './HongTextFieldNumberOption';
 import type { HongColorEntry } from '../../rule/color/HongColor';
-import type { HongTypoEntry } from '../../rule/typo/HongTypo';
+import type { HongTypoProps } from '../../rule/typo/HongTypo';
 import type { HongSpacingInfo } from '../../rule/HongSpacingInfo';
 import type { HongKeyboardActionTypeEntry } from '../../rule/keyboard/HongKeyboardActionType';
 
@@ -29,7 +29,7 @@ export class HongTextFieldNumberBuilder extends HongWidgetCommonBuilder<
     return this;
   }
 
-  placeholderTypo(typo: HongTypoEntry): HongTextFieldNumberBuilder {
+  placeholderTypo(typo: HongTypoProps): HongTextFieldNumberBuilder {
     this.option.placeholderTypo = typo;
     return this;
   }
@@ -39,7 +39,7 @@ export class HongTextFieldNumberBuilder extends HongWidgetCommonBuilder<
     return this;
   }
 
-  inputTypo(typo: HongTypoEntry): HongTextFieldNumberBuilder {
+  inputTypo(typo: HongTypoProps): HongTextFieldNumberBuilder {
     this.option.inputTypo = typo;
     return this;
   }

@@ -4,7 +4,7 @@ import {
   type HongCountTypeEntry,
 } from './HongTextCountOption';
 import type { HongColorEntry } from '../../rule/color/HongColor';
-import type { HongTypoEntry } from '../../rule/typo/HongTypo';
+import type { HongTypoProps } from '../../rule/typo/HongTypo';
 
 export class HongTextCountBuilder extends HongWidgetCommonBuilder<
   HongTextCountOption,
@@ -26,7 +26,7 @@ export class HongTextCountBuilder extends HongWidgetCommonBuilder<
     return this;
   }
 
-  countTypo(typo: HongTypoEntry): HongTextCountBuilder {
+  countTypo(typo: HongTypoProps): HongTextCountBuilder {
     this.option.countTypo = typo;
     return this;
   }
@@ -44,7 +44,7 @@ export class HongTextCountBuilder extends HongWidgetCommonBuilder<
     return this;
   }
 
-  unitTypo(typo: HongTypoEntry): HongTextCountBuilder {
+  unitTypo(typo: HongTypoProps): HongTextCountBuilder {
     this.option.unitTypo = typo;
     return this;
   }

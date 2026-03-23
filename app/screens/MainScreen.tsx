@@ -1,24 +1,27 @@
 import React from 'react';
 import {
-  View,
-  FlatList,
+  Platform,
+  SectionList,
+  StatusBar,
   StyleSheet,
   TouchableOpacity,
-  SectionList,
-  Platform,
+  View,
 } from 'react-native';
-import { SafeAreaView, useSafeAreaInsets } from 'react-native-safe-area-context';
-
-const Container = Platform.OS === 'android' ? SafeAreaView : View;
-import type { MainScreenProps } from '../navigation/types';
 import {
+  SafeAreaView,
+  useSafeAreaInsets,
+} from 'react-native-safe-area-context';
+import {
+  HongColor,
+  HongFont,
   HongText,
   HongTextBuilder,
-  HongColor,
   HongTypo,
-  HongFont,
   hongColorHexToRNColor,
 } from '../../widget';
+import type { MainScreenProps } from '../navigation/types';
+
+const Container = Platform.OS === 'android' ? SafeAreaView : View;
 
 // ─── 데이터 ────────────────────────────────────────────────────────────────
 
@@ -50,17 +53,37 @@ const WIDGET_CATEGORIES: WidgetCategory[] = [
     title: 'TextField',
     data: [
       { title: 'TextField', isImplemented: true, screen: 'TextFieldSample' },
-      { title: 'TextFieldUnderline', isImplemented: true, screen: 'TextFieldUnderlineSample' },
-      { title: 'TextFieldTimer', isImplemented: true, screen: 'TextFieldTimerSample' },
-      { title: 'TextFieldNumber', isImplemented: true, screen: 'TextFieldNumberSample' },
-      { title: 'TextFieldBorder', isImplemented: true, screen: 'TextFieldBorderSample' },
-      { title: 'TextFieldBorderSelect', isImplemented: true, screen: 'TextFieldBorderSelectSample' },
+      {
+        title: 'TextFieldUnderline',
+        isImplemented: true,
+        screen: 'TextFieldUnderlineSample',
+      },
+      {
+        title: 'TextFieldTimer',
+        isImplemented: true,
+        screen: 'TextFieldTimerSample',
+      },
+      {
+        title: 'TextFieldNumber',
+        isImplemented: true,
+        screen: 'TextFieldNumberSample',
+      },
+      {
+        title: 'TextFieldBorder',
+        isImplemented: true,
+        screen: 'TextFieldBorderSample',
+      },
+      {
+        title: 'TextFieldBorderSelect',
+        isImplemented: true,
+        screen: 'TextFieldBorderSelectSample',
+      },
     ],
   },
   {
     title: 'Button',
     data: [
-      { title: 'ButtonText', isImplemented: false },
+      { title: 'ButtonText', isImplemented: true, screen: 'ButtonTextSample' },
       { title: 'ButtonSelect', isImplemented: false },
       { title: 'ButtonIcon', isImplemented: false },
     ],
@@ -161,8 +184,13 @@ export function MainScreen({ navigation }: MainScreenProps) {
 
   return (
     <Container style={styles.root}>
+      <StatusBar
+        barStyle={Platform.OS === 'android' ? 'dark-content' : 'light-content'}
+      />
       {/* Top Bar */}
-      <View style={[styles.topBar, { paddingTop: topPad, height: 50 + topPad }]}>
+      <View
+        style={[styles.topBar, { paddingTop: topPad, height: 50 + topPad }]}
+      >
         <HongText option={titleOption} />
       </View>
 
@@ -183,7 +211,10 @@ export function MainScreen({ navigation }: MainScreenProps) {
             }}
           />
         )}
-        contentContainerStyle={[styles.listContent, { paddingBottom: 40 + botPad }]}
+        contentContainerStyle={[
+          styles.listContent,
+          { paddingBottom: 40 + botPad },
+        ]}
         stickySectionHeadersEnabled={false}
       />
     </Container>
@@ -241,7 +272,9 @@ function SampleListItem({
             .text('샘플')
             .typography(HongTypo.BODY_14_B)
             .colorEntry(
-              item.isImplemented ? HongColor.MAIN_ORANGE_100 : HongColor.GRAY_40
+              item.isImplemented
+                ? HongColor.MAIN_ORANGE_100
+                : HongColor.GRAY_40,
             )
             .applyOption()}
         />

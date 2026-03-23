@@ -15,7 +15,10 @@ interface HongWidgetContainerProps {
  * Android HongWidgetContainer / HongWidgetNoneClickContainer 대응
  * margin → background(border/radius/shadow) → padding 순으로 적용
  */
-export function HongWidgetContainer({ option, children }: HongWidgetContainerProps) {
+export function HongWidgetContainer({
+  option,
+  children,
+}: HongWidgetContainerProps) {
   const marginStyle = buildMarginStyle(option);
   const sizeStyle = buildSizeStyle(option);
   const backgroundStyle = buildBackgroundStyle(option);
@@ -46,10 +49,34 @@ export function HongWidgetContainer({ option, children }: HongWidgetContainerPro
   }
 
   return (
+    <HongWidgetNoneClickContainer option={option}>
+      {children}
+    </HongWidgetNoneClickContainer>
+  );
+}
+
+export function HongWidgetNoneClickContainer({
+  option,
+  children,
+}: HongWidgetContainerProps) {
+  const marginStyle = buildMarginStyle(option);
+  const sizeStyle = buildSizeStyle(option);
+  const backgroundStyle = buildBackgroundStyle(option);
+  const paddingStyle = buildPaddingStyle(option);
+  const shadowStyle = buildShadowStyle(option);
+
+  const innerStyle: ViewStyle = {
+    ...sizeStyle,
+    ...backgroundStyle,
+    ...paddingStyle,
+    ...shadowStyle,
+    alignItems: 'center',
+    justifyContent: 'center',
+  };
+
+  return (
     <View style={marginStyle}>
-      <View style={innerStyle}>
-        {children}
-      </View>
+      <View style={innerStyle}>{children}</View>
     </View>
   );
 }
@@ -62,6 +89,7 @@ function buildMarginStyle(option: HongWidgetCommonOption): ViewStyle {
     marginBottom: option.margin.bottom,
     marginLeft: option.margin.left,
     marginRight: option.margin.right,
+    ...(isMatchParent(option.width) ? { alignSelf: 'stretch' } : {}),
   };
 }
 

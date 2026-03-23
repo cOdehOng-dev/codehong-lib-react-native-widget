@@ -7,9 +7,9 @@ import { HongTextBuilder } from '../def/HongTextBuilder';
 import { HongImages } from '../../assets/images/HongImages';
 import { hongColorHexToRNColor } from '../../rule/color/HongColor';
 
-interface HongTextUpDownProps {
+type Props = {
   option: HongTextUpDownOption;
-}
+};
 
 function formatAmount(value: number, useDecimal: boolean): string {
   if (useDecimal) {
@@ -22,10 +22,10 @@ function formatAmount(value: number, useDecimal: boolean): string {
  * HongTextUpDownCompose의 React Native 대응 컴포넌트
  * -/+ 버튼으로 숫자를 증감하는 위젯
  */
-export function HongTextUpDown({ option }: HongTextUpDownProps): React.ReactElement | null {
-  if (!option.isValidComponent) return null;
-
+export function HongTextUpDown({ option }: Props): React.ReactElement | null {
   const [amount, setAmount] = useState(option.amount);
+
+  if (!option.isValidComponent) return null;
 
   const borderColor = hongColorHexToRNColor(option.borderColorHex);
   const iconColor = hongColorHexToRNColor(option.iconColorHex);

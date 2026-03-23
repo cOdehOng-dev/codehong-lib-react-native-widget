@@ -1,12 +1,18 @@
 import type { HongWidgetCommonOption } from '../../HongWidgetCommonOption';
-import { HongWidgetType, type HongWidgetTypeEntry } from '../../rule/HongWidgetType';
+import {
+  HongWidgetType,
+  type HongWidgetTypeEntry,
+} from '../../rule/HongWidgetType';
 import { HongLayoutParam } from '../../rule/HongLayoutParam';
 import { defaultHongSpacingInfo } from '../../rule/HongSpacingInfo';
 import { defaultHongRadiusInfo } from '../../rule/radius/HongRadiusInfo';
 import { defaultHongShadowInfo } from '../../rule/HongShadowInfo';
-import { defaultHongBorderInfo, type HongBorderInfo } from '../../rule/HongBorderInfo';
+import {
+  defaultHongBorderInfo,
+  type HongBorderInfo,
+} from '../../rule/HongBorderInfo';
 import { HongColor } from '../../rule/color/HongColor';
-import { HongTypo, type HongTypoEntry } from '../../rule/typo/HongTypo';
+import { HongTypo, type HongTypoProps } from '../../rule/typo/HongTypo';
 
 export class HongTextUpDownOption implements HongWidgetCommonOption {
   type: HongWidgetTypeEntry = HongWidgetType.TEXT_UP_DOWN;
@@ -29,7 +35,7 @@ export class HongTextUpDownOption implements HongWidgetCommonOption {
 
   useDecimal: boolean = false;
 
-  displayTypo: HongTypoEntry = HongTypo.BODY_16;
+  displayTypo: HongTypoProps = HongTypo.BODY_16;
   displayColorHex: string = HongColor.BLACK_100.hex;
 
   borderColorHex: string = HongColor.GRAY_30.hex;

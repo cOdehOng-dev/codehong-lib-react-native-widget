@@ -1,8 +1,8 @@
 export type HongSpacingInfo = {
-  left: number;
-  top: number;
-  right: number;
-  bottom: number;
+  left?: number;
+  top?: number;
+  right?: number;
+  bottom?: number;
 };
 
 export const defaultHongSpacingInfo = (): HongSpacingInfo => ({
