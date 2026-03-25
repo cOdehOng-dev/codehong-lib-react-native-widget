@@ -1,12 +1,14 @@
 name: Publish Widget(스냅샷 배포)
 
 # 트리거 1: develop 브랜치 머지 → package.json version 기반 스냅샷 배포
-# 트리거 2: snap_v* 태그 push (예: snap_v1.0.0) → 태그 버전 기반 스냅샷 배포
+# 트리거 2: feature/** 브랜치 머지 → package.json version 기반 스냅샷 배포
+# 트리거 3: snap_v* 태그 push (예: snap_v1.0.0) → 태그 버전 기반 스냅샷 배포
 # 버전 형식: {base}-SNAPSHOT.{YYYYMMDDHHMMSS}  예) 1.0.0-SNAPSHOT.20250306143000
 on:
   push:
     branches:
       - develop
+      - 'feature/**'
     paths:
       - 'widget/**'
     tags:
