@@ -7,3 +7,4 @@ export * from './image';
 export * from './textfield';
 export * from './button';
 export * from './assets';
+export * from './tab';

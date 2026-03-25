@@ -8,7 +8,7 @@ import { hongScaleTypeToResizeMode } from '../../rule/HongScaleType';
 import { hongRadiusToStyle } from '../../rule/radius/HongRadiusInfo';
 import { layoutParamToStyle, isMatchParent } from '../../rule/HongLayoutParam';
 
-type HongImageProps = {
+type OptionProps = {
   option: HongImageOption;
 };
 
@@ -30,9 +30,7 @@ function resolveSource(
  * HongWidgetContainer 대신 직접 레이아웃을 구성합니다.
  * (컨테이너의 alignItems/justifyContent가 이미지 100% 레이아웃과 충돌하기 때문)
  */
-export function HongImage({
-  option,
-}: HongImageProps): React.ReactElement | null {
+export function HongImage({ option }: OptionProps): React.ReactElement | null {
   const [hasError, setHasError] = useState(false);
 
   if (!option.isValidComponent) return null;

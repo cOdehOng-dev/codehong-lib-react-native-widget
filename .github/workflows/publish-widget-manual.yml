@@ -1,4 +1,4 @@
-name: Publish Widget (Manual)
+name: Publish Widget(수동 배포)
 
 # GitHub Actions 탭에서 직접 실행하는 수동 배포
 on:

@@ -91,7 +91,7 @@ const WIDGET_CATEGORIES: WidgetCategory[] = [
   {
     title: 'Tab',
     data: [
-      { title: 'TabScroll', isImplemented: false },
+      { title: 'TabScroll', isImplemented: true, screen: 'TabScrollSample' },
       { title: 'TabSegment', isImplemented: false },
       { title: 'TabFlow', isImplemented: false },
     ],

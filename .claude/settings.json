@@ -1,0 +1,8 @@
+{
+  "permissions": {
+    "allow": [
+      "Read(//Users/ghdtjrdn0323/Desktop/codehong-lib/codehong-lib/Widget/src/main/java/com/codehong/library/widget/tab/**)",
+      "Read(//Users/ghdtjrdn0323/Desktop/codehong-lib/codehong-lib/Widget/src/main/java/com/codehong/library/widget/tab/scroll/**)"
+    ]
+  }
+}

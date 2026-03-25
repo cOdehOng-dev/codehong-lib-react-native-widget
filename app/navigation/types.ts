@@ -20,6 +20,7 @@ export type RootStackParamList = {
   TextFieldUnderlineSample: undefined;
   TextFieldBorderSelectSample: undefined;
   ButtonTextSample: undefined;
+  TabScrollSample: undefined;
 };
 
 export type MainScreenProps = NativeStackScreenProps<

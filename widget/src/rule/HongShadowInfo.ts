@@ -1,12 +1,12 @@
 import { HongColor } from './color/HongColor';
 
-export interface HongShadowInfo {
+export type HongShadowInfo = {
   color: string;
   blur: number;
   offsetY: number;
   offsetX: number;
   spread: number;
-}
+};
 
 export const defaultHongShadowInfo = (): HongShadowInfo => ({
   color: HongColor.TRANSPARENT.hex,

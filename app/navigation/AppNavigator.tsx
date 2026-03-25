@@ -18,6 +18,7 @@ import { TextFieldTimerSampleScreen } from '../screens/textfield/TextFieldTimerS
 import { TextFieldUnderlineSampleScreen } from '../screens/textfield/TextFieldUnderlineSampleScreen';
 import { TextFieldBorderSelectSampleScreen } from '../screens/textfield/TextFieldBorderSelectSampleScreen';
 import { ButtonTextSampleScreen } from 'app/screens/button/ButtonTextSampleScreen';
+import { TabScrollSampleScreen } from 'app/screens/tab/TabScrollSampleScreen';
 
 const Stack = createNativeStackNavigator<RootStackParamList>();
 
@@ -76,6 +77,10 @@ export function AppNavigator() {
         <Stack.Screen
           name="ButtonTextSample"
           component={ButtonTextSampleScreen}
+        />
+        <Stack.Screen
+          name="TabScrollSample"
+          component={TabScrollSampleScreen}
         />
       </Stack.Navigator>
     </NavigationContainer>

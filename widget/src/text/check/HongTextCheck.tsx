@@ -12,7 +12,14 @@ interface HongTextCheckProps {
 function CheckIcon({ size, color }: { size: number; color: string }) {
   const strokeWidth = Math.max(1.5, size * 0.08);
   return (
-    <View style={{ width: size, height: size, justifyContent: 'center', alignItems: 'center' }}>
+    <View
+      style={{
+        width: size,
+        height: size,
+        justifyContent: 'center',
+        alignItems: 'center',
+      }}
+    >
       <View
         style={{
           width: size * 0.55,
@@ -31,7 +38,14 @@ function CheckIcon({ size, color }: { size: number; color: string }) {
 function ArrowRightIcon({ size, color }: { size: number; color: string }) {
   const strokeWidth = Math.max(1.5, size * 0.08);
   return (
-    <View style={{ width: size, height: size, justifyContent: 'center', alignItems: 'center' }}>
+    <View
+      style={{
+        width: size,
+        height: size,
+        justifyContent: 'center',
+        alignItems: 'center',
+      }}
+    >
       <View
         style={{
           width: size * 0.3,
@@ -50,15 +64,19 @@ function ArrowRightIcon({ size, color }: { size: number; color: string }) {
  * HongTextCheckCompose의 React Native 대응 컴포넌트
  * 체크 아이콘 + 텍스트 + 우측 화살표로 구성된 체크 위젯
  */
-export function HongTextCheck({ option }: HongTextCheckProps): React.ReactElement | null {
-  if (!option.isValidComponent) return null;
-
+export function HongTextCheck({
+  option,
+}: HongTextCheckProps): React.ReactElement | null {
   const [isChecked, setIsChecked] = useState(option.checkState);
 
+  if (!option.isValidComponent) return null;
+
   const checkColor = hongColorHexToRNColor(
-    isChecked ? option.checkColor : option.uncheckColor
+    isChecked ? option.checkColor : option.uncheckColor,
   );
-  const arrowColor = hongColorHexToRNColor(option.textOption.colorHex ?? option.uncheckColor);
+  const arrowColor = hongColorHexToRNColor(
+    option.textOption.colorHex ?? option.uncheckColor,
+  );
 
   const handleCheckPress = () => {
     const next = !isChecked;

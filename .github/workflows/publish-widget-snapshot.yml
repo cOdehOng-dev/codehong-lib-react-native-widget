@@ -1,4 +1,4 @@
-name: Publish Widget - Snapshot
+name: Publish Widget(스냅샷 배포)
 
 # 트리거 1: develop 브랜치 머지 → package.json version 기반 스냅샷 배포
 # 트리거 2: snap_v* 태그 push (예: snap_v1.0.0) → 태그 버전 기반 스냅샷 배포
