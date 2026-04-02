@@ -155,7 +155,7 @@ const WIDGET_CATEGORIES: WidgetCategory[] = [
       { title: 'Icon', isImplemented: false },
       { title: 'Calendar', isImplemented: false },
       { title: 'HorizontalViewPager', isImplemented: false },
-      { title: 'Picker', isImplemented: false },
+      { title: 'Picker', isImplemented: true, screen: 'PickerSample' },
       { title: 'CaptureShare', isImplemented: false },
       { title: 'DynamicIsland', isImplemented: false },
       { title: 'GridDragAndDrop', isImplemented: false },
