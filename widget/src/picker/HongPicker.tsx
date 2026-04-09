@@ -25,7 +25,6 @@ type Props = {
 
 const ITEM_HEIGHT = 36;
 const PICKER_HEIGHT = 220;
-// pickerRow paddingVertical(30) × 2 를 뺀 실제 컬럼 높이
 const PICKER_COLUMN_HEIGHT = PICKER_HEIGHT - 60;
 const TOP_BOTTOM_PADDING = (PICKER_COLUMN_HEIGHT - ITEM_HEIGHT) / 2;
 

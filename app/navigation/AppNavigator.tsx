@@ -20,6 +20,7 @@ import { TextFieldBorderSelectSampleScreen } from '../screens/textfield/TextFiel
 import { ButtonTextSampleScreen } from 'app/screens/button/ButtonTextSampleScreen';
 import { TabScrollSampleScreen } from 'app/screens/tab/TabScrollSampleScreen';
 import { PickerSampleScreen } from 'app/screens/picker/PickerSampleScreen';
+import { CalendarSampleScreen } from 'app/screens/calendar/CalendarSampleScreen';
 
 const Stack = createNativeStackNavigator<RootStackParamList>();
 
@@ -84,6 +85,7 @@ export function AppNavigator() {
           component={TabScrollSampleScreen}
         />
         <Stack.Screen name="PickerSample" component={PickerSampleScreen} />
+        <Stack.Screen name="CalendarSample" component={CalendarSampleScreen} />
       </Stack.Navigator>
     </NavigationContainer>
   );

@@ -153,7 +153,7 @@ const WIDGET_CATEGORIES: WidgetCategory[] = [
     title: 'Etc',
     data: [
       { title: 'Icon', isImplemented: false },
-      { title: 'Calendar', isImplemented: false },
+      { title: 'Calendar', isImplemented: true, screen: 'CalendarSample' },
       { title: 'HorizontalViewPager', isImplemented: false },
       { title: 'Picker', isImplemented: true, screen: 'PickerSample' },
       { title: 'CaptureShare', isImplemented: false },
