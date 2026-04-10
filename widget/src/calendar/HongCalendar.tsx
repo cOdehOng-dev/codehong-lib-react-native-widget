@@ -36,6 +36,7 @@ export function HongCalendar({ option }: Props): React.ReactElement {
   const startDateRef = useRef(startDate);
   const endDateRef = useRef(endDate);
   const onSelectedRef = useRef(option.onSelected);
+
   startDateRef.current = startDate;
   endDateRef.current = endDate;
   onSelectedRef.current = option.onSelected;
@@ -46,10 +47,11 @@ export function HongCalendar({ option }: Props): React.ReactElement {
     let newStart: Date | null;
     let newEnd: Date | null;
 
-    if (curStart === null || curEnd !== null) {
-      newStart = day;
-      newEnd = null;
-    } else if (CalendarUtils.isDateBefore(day, curStart)) {
+    if (
+      curStart === null ||
+      curEnd !== null ||
+      CalendarUtils.isDateBefore(day, curStart)
+    ) {
       newStart = day;
       newEnd = null;
     } else {
@@ -62,12 +64,12 @@ export function HongCalendar({ option }: Props): React.ReactElement {
     onSelectedRef.current?.(newStart, newEnd);
   }, []);
 
-  const startYMD = useMemo(
-    () => (startDate ? CalendarUtils.dateToYMD(startDate) : null),
+  const startYYYYmmDD = useMemo(
+    () => (startDate ? CalendarUtils.dateToYYYYMMDD(startDate) : null),
     [startDate],
   );
-  const endYMD = useMemo(
-    () => (endDate ? CalendarUtils.dateToYMD(endDate) : null),
+  const endYYYYmmDD = useMemo(
+    () => (endDate ? CalendarUtils.dateToYYYYMMDD(endDate) : null),
     [endDate],
   );
 
@@ -77,13 +79,13 @@ export function HongCalendar({ option }: Props): React.ReactElement {
         month={item}
         todayDate={todayDate}
         isFirstMonth={index === 0}
-        startYMD={startYMD}
-        endYMD={endYMD}
+        startYYYYmmDD={startYYYYmmDD}
+        endYYYYmmDD={endYYYYmmDD}
         option={option}
         onDatePress={handleDatePress}
       />
     ),
-    [todayDate, startYMD, endYMD, option, handleDatePress],
+    [todayDate, startYYYYmmDD, endYYYYmmDD, option, handleDatePress],
   );
 
   const keyExtractor = useCallback(
@@ -112,8 +114,6 @@ export function HongCalendar({ option }: Props): React.ReactElement {
     </View>
   );
 }
-
-// ─── Styles ───────────────────────────────────────────────────────────────────
 
 const styles = StyleSheet.create({
   root: {

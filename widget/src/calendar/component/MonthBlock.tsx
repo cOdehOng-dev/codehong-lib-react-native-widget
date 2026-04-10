@@ -10,8 +10,8 @@ type Props = {
   month: Date;
   todayDate: Date;
   isFirstMonth: boolean;
-  startYMD: string | null;
-  endYMD: string | null;
+  startYYYYmmDD: string | null;
+  endYYYYmmDD: string | null;
   option: HongCalendarOption;
   onDatePress: (day: Date) => void;
 };
@@ -20,8 +20,8 @@ function MonthBlockComponent({
   month,
   todayDate,
   isFirstMonth,
-  startYMD,
-  endYMD,
+  startYYYYmmDD,
+  endYYYYmmDD,
   option,
   onDatePress,
 }: Props) {
@@ -64,8 +64,8 @@ function MonthBlockComponent({
           key={wi}
           week={week}
           todayDate={todayDate}
-          startYYYYmmDD={startYMD}
-          endYYYYmmDD={endYMD}
+          startYYYYmmDD={startYYYYmmDD}
+          endYYYYmmDD={endYYYYmmDD}
           option={option}
           onDatePress={onDatePress}
         />
