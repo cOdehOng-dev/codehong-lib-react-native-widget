@@ -10,3 +10,4 @@ export * from './assets';
 export * from './tab';
 export * from './picker';
 export * from './calendar';
+export * from './consts';

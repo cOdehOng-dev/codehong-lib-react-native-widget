@@ -18,7 +18,7 @@ import {
   HongTextBuilder,
   HongTypo,
   hongColorHexToRNColor,
-  KOREAN_HOLIDAY_LIST_2025,
+  KOREAN_HOLIDAY_LIST_2026,
 } from 'widget';
 import { RootContainer } from 'app/navigation/types';
 
@@ -36,20 +36,26 @@ export function CalendarSampleScreen({ navigation }: Props) {
         .backgroundColor(HongColor.WHITE_100.hex)
         .dayOfWeekLangType(HongCalendarDayOfWeekLangType.KOR)
         .yearMonthPattern('yyyy.MM')
-        .initialStartDate('20260401')
-        .initialEndDate('20260415')
-        .holidayList(KOREAN_HOLIDAY_LIST_2025)
+        .initialStartDate('20260909')
+        .initialEndDate('20260930')
+        .holidayList(KOREAN_HOLIDAY_LIST_2026)
         .spacingHorizontal(16)
         .bottomSpacingWeek(20)
         .maxYears(1)
         .onSelected((start, end) => {
           if (start && end) {
             const fmt = (d: Date) =>
-              `${d.getFullYear()}.${String(d.getMonth() + 1).padStart(2, '0')}.${String(d.getDate()).padStart(2, '0')}`;
+              `${d.getFullYear()}.${String(d.getMonth() + 1).padStart(
+                2,
+                '0',
+              )}.${String(d.getDate()).padStart(2, '0')}`;
             setResult(`${fmt(start)} ~ ${fmt(end)}`);
           } else if (start) {
             const fmt = (d: Date) =>
-              `${d.getFullYear()}.${String(d.getMonth() + 1).padStart(2, '0')}.${String(d.getDate()).padStart(2, '0')}`;
+              `${d.getFullYear()}.${String(d.getMonth() + 1).padStart(
+                2,
+                '0',
+              )}.${String(d.getDate()).padStart(2, '0')}`;
             setResult(`${fmt(start)} 선택됨`);
           } else {
             setResult('');
@@ -75,8 +81,13 @@ export function CalendarSampleScreen({ navigation }: Props) {
       <StatusBar
         barStyle={Platform.OS === 'android' ? 'dark-content' : 'light-content'}
       />
-      <View style={[styles.header, { paddingTop: topPad, height: 50 + topPad }]}>
-        <Pressable style={styles.backButton} onPress={() => navigation.goBack()}>
+      <View
+        style={[styles.header, { paddingTop: topPad, height: 50 + topPad }]}
+      >
+        <Pressable
+          style={styles.backButton}
+          onPress={() => navigation.goBack()}
+        >
           <HongImage
             option={new HongImageBuilder()
               .width(28)

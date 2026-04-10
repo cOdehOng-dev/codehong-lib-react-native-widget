@@ -106,22 +106,6 @@ export const DEFAULT_CALENDAR_UNSELECT_TODAY_STYLE: HongCalendarDayStyle = {
   backgroundColorHex: HongColor.TRANSPARENT.hex,
 };
 
-// ─── Korean holidays (2025) ──────────────────────────────────────────────────
-
-export const KOREAN_HOLIDAY_LIST_2025: string[] = [
-  '20250101', // 신정
-  '20250128', '20250129', '20250130', // 설날 연휴
-  '20250301', // 삼일절
-  '20250505', // 어린이날
-  '20250506', // 어린이날 대체
-  '20250508', // 부처님오신날
-  '20250606', // 현충일
-  '20250815', // 광복절
-  '20251003', '20251004', '20251005', '20251006', // 추석 연휴
-  '20251009', // 한글날
-  '20251225', // 크리스마스
-];
-
 // ─── Option ───────────────────────────────────────────────────────────────────
 
 export class HongCalendarOption implements HongWidgetCommonOption {
@@ -157,7 +141,8 @@ export class HongCalendarOption implements HongWidgetCommonOption {
   holidaysStyle: HongCalendarDayStyle = DEFAULT_CALENDAR_HOLIDAY_STYLE;
   pastDaysStyle: HongCalendarDayStyle = DEFAULT_CALENDAR_PAST_DAYS_STYLE;
   defaultDayStyle: HongCalendarDayStyle = DEFAULT_CALENDAR_DEFAULT_DAY_STYLE;
-  todaySelectedStyle: HongCalendarDayStyle = DEFAULT_CALENDAR_SELECT_TODAY_STYLE;
+  todaySelectedStyle: HongCalendarDayStyle =
+    DEFAULT_CALENDAR_SELECT_TODAY_STYLE;
   todayUnselectedStyle: HongCalendarDayStyle =
     DEFAULT_CALENDAR_UNSELECT_TODAY_STYLE;
 
@@ -178,7 +163,6 @@ export class HongCalendarOption implements HongWidgetCommonOption {
   initialEndDate: string | null = null;
 
   // 날짜 선택 콜백
-  onSelected:
-    | ((startDate: Date | null, endDate: Date | null) => void)
-    | null = null;
+  onSelected: ((startDate: Date | null, endDate: Date | null) => void) | null =
+    null;
 }
