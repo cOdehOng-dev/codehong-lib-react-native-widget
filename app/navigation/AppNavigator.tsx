@@ -21,6 +21,7 @@ import { ButtonTextSampleScreen } from 'app/screens/button/ButtonTextSampleScree
 import { TabScrollSampleScreen } from 'app/screens/tab/TabScrollSampleScreen';
 import { PickerSampleScreen } from 'app/screens/picker/PickerSampleScreen';
 import { CalendarSampleScreen } from 'app/screens/calendar/CalendarSampleScreen';
+import { BottomSheetModalSampleScreen } from 'app/screens/bottomsheet/BottomSheetModalSampleScreen';
 
 const Stack = createNativeStackNavigator<RootStackParamList>();
 
@@ -86,6 +87,10 @@ export function AppNavigator() {
         />
         <Stack.Screen name="PickerSample" component={PickerSampleScreen} />
         <Stack.Screen name="CalendarSample" component={CalendarSampleScreen} />
+        <Stack.Screen
+          name="BottomSheetModalSample"
+          component={BottomSheetModalSampleScreen}
+        />
       </Stack.Navigator>
     </NavigationContainer>
   );

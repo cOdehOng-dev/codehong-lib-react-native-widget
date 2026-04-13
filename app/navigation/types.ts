@@ -23,6 +23,7 @@ export type RootStackParamList = {
   TabScrollSample: undefined;
   PickerSample: undefined;
   CalendarSample: undefined;
+  BottomSheetModalSample: undefined;
 };
 
 export type MainScreenProps = NativeStackScreenProps<

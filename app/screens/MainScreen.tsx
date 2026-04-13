@@ -117,6 +117,11 @@ const WIDGET_CATEGORIES: WidgetCategory[] = [
     title: 'Bottom Sheet',
     data: [
       { title: 'BottomSheetSelect', isImplemented: false },
+      {
+        title: 'BottomSheetModal',
+        isImplemented: true,
+        screen: 'BottomSheetModalSample',
+      },
       { title: 'BottomSheetSwipe', isImplemented: false },
       { title: 'BottomSheetBank', isImplemented: false },
     ],
